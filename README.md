@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Posteame Esta
 
-## Getting Started
+Estaba yo el otro dia estudiando nuevas tecnologías, cuando me di cuenta del nivel que había alcanzado gracias a los numerosos proyectos personales en los que me había aventurado. Esta realización me llevó a la idea de crear una serie de aplicaciones "simples", por así decirlo.
 
-First, run the development server:
+Continuando con esta iniciativa de programar aplicaciones que representen un desafío para mi razonamiento en cuanto al uso de Next.js y JavaScript, decidí desarrollar una aplicación para crear PostIts. Mi objetivo en esta nueva App es mejorar mis habilidades en el manejo de formularios y la conexión con una base de datos.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Aunque he estado trabajando en el lado del back-end recientemente, siento que todavía hay espacio para mejorar. Espero que esta aplicación me ayude a pulir lo que he estado investigando ademas, me ayude en este camino de aprendizaje y crecimiento personal.
+
+## Plan
+
+Mi plan es hacer commits desde el inicio del desarrollo, algo que hasta ahora he hecho pocas veces a pesar de haber realizado muchos commits y proyectos. Por lo tanto, planeo mejorar la aplicación y la documentación simultáneamente, con la esperanza de mantener un flujo constante de desarrollo. En la aplicación anterior [Age Calculator (Calculadora de Edad)](https://github.com/ArturoGabrielRamirez/AgeCalculator#calculadora-de-edad), me di cuenta de que ya es hora de aplicar este método para mantener una documentación más completa y constante.
+
+## Dependencias e Instalación
+
+Esta aplicación utiliza las siguientes dependencias:
+
+```json
+{
+   "name": "posteame-esta",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1"
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para instalar y ejecutar la aplicación, sigue estos pasos:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clona el repositorio en tu máquina local usando `git clone **<URL del repositorio>**`.
+2. Navega hasta el directorio del proyecto usando `cd posteame-esta`.
+3. Instala las dependencias necesarias usando `npm install`.
+4. Inicia el servidor de desarrollo usando `npm run dev`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Ahora deberías poder acceder a la aplicación en `http://localhost:3000`
