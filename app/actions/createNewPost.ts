@@ -1,17 +1,20 @@
 "use server"
 
+import clientPromise from "@/auth/adapter";
 import { revalidatePath } from "next/cache";
 
-export const createNewPost = async (data : any) => {
-    const request = await fetch("http://localhost:3000/api/postIt", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
+export const createNewPost = async (data: any) => {
+    const client = await clientPromise;
+    const db = client.db();
+    const { title, postItNote } = await data;
 
-    const response = await request.json();
-    revalidatePath("/")
-    return response
+    if (!title || !postItNote) return data({ error: "Los campos Title y Post It son requeridos" }, { status: 400 })
+
+    try {
+        const newNote = await db.collection("notes").insertOne({ title, postItNote });
+        revalidatePath("/")
+        return ({ note: { _id: newNote.insertedId } })
+    } catch {
+        return ({ error: "Ocurrio una respuesta inesperada del servidor", status: 500 })
+    }
 };

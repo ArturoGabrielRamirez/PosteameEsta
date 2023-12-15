@@ -16,7 +16,7 @@ Esta aplicación utiliza las siguientes dependencias:
 
 ```json
 {
-   "name": "posteame-esta",
+  "name": "posteame-esta",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,20 +26,23 @@ Esta aplicación utiliza las siguientes dependencias:
     "lint": "next lint"
   },
   "dependencies": {
+    "mongodb": "^6.3.0",
+    "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.1"
+    "react-hook-form": "^7.48.2",
+    "react-textarea-autosize": "^8.5.3"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.1"
+    "typescript": "^5"
   }
 }
 ```
