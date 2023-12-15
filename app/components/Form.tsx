@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { useState } from "react"
 import { createNewPost } from "@/app/actions/createNewPost"
 import TextareaAutosize from 'react-textarea-autosize'
+import { ObjectId } from "mongodb"
 
 type FormData = {
     title: string
@@ -11,12 +12,14 @@ type FormData = {
 }
 
 interface Note {
+    _id: string
     title: string
     postItNote: string
 }
 
 export default function Form() {
-    const [notes, setNotes] = useState<Note[]>([])
+    const [notes, setNotes] = useState<Array<{ _id: string | ObjectId; title: any; postItNote: any; } | Note>>([])
+
 
     const {
         register,
@@ -26,9 +29,9 @@ export default function Form() {
     } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
-        const newNoteFromDB = await createNewPost(data)
-        const newNote = [...notes, newNoteFromDB]
-        setNotes(newNote)
+        const { note } = await createNewPost(data)
+        const newNote = [...notes, note]
+        setNotes(newNote as Array<Note>)
         console.log(newNote)
         reset()
     }
