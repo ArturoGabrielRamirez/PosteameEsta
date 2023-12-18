@@ -8,7 +8,7 @@ import { redirect } from "next/navigation"
 
 export default function NoteDetails({ res }: { res: any }) {
     const [isActive, setIsActive] = useState<boolean>(true)
-    const notes = res.notes[0]
+    const notes = res?.notes ? res.notes[0] : {title : "", postItNote: ""}
     const [title, setTitle] = useState(notes.title)
     const [postItNote, setPostItNote] = useState(notes.postItNote)
     if (!res || !res.notes) {
