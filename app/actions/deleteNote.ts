@@ -8,17 +8,9 @@ import { ObjectId } from "mongodb"
 export const deleteNote = async (data: any) => {
     const client = await clientPromise
     const db = client.db()
-    /* const { _id } = data */
-
-    console.log(data.data)
-
-    /* if (!_id) return {
-        error: "El id de la nota no se encuentra",
-        status: 400
-    } */
 
     try {
-        const deleteResult = await db.collection("notes").deleteOne({ _id: new ObjectId(data.data) })
+        const deleteResult = await db.collection("notes").deleteOne({ _id: new ObjectId(data._id) })
         revalidatePath("/")
         return ({ result: deleteResult })
     } catch {

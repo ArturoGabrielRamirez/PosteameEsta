@@ -1,12 +1,13 @@
-"use server";
+"use server"
 
-import clientPromise from "@/auth/adapter";
-import { revalidatePath } from "next/cache";
+import clientPromise from "@/auth/adapter"
+import { revalidatePath } from "next/cache"
+
 
 export const createNewPost = async (data: any) => {
-    const client = await clientPromise;
-    const db = client.db();
-    const { title, postItNote } = data; //{title , postItNote}
+    const client = await clientPromise
+    const db = client.db()
+    const { title, postItNote } = data
 
     if (!title || !postItNote) {
         return {
@@ -17,18 +18,18 @@ export const createNewPost = async (data: any) => {
     }
 
     try {
-        const newNote = await db.collection("notes").insertOne({ title, postItNote });
-        revalidatePath("/");
+        const newNote = await db.collection("notes").insertOne({ title, postItNote })
+        revalidatePath("/")
         return ({
             note: { _id: newNote.insertedId, title, postItNote },
             status: 200,
             error: ""
-        });
+        })
     } catch {
         return ({
             error: "Ocurrio una respuesta inesperada del servidor",
             status: 500,
             note: { _id: "" }
-        });
+        })
     }
-};
+}

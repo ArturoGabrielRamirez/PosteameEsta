@@ -6,6 +6,7 @@ import { createNewPost } from "@/app/actions/createNewPost"
 import TextareaAutosize from 'react-textarea-autosize'
 import { ObjectId } from "mongodb"
 
+
 type FormData = {
     title: string
     postItNote: string
@@ -20,7 +21,6 @@ interface Note {
 export default function Form() {
     const [notes, setNotes] = useState<Array<{ _id: string | ObjectId; title: any; postItNote: any; } | Note>>([])
 
-
     const {
         register,
         handleSubmit,
@@ -32,7 +32,6 @@ export default function Form() {
         const { note } = await createNewPost(data)
         const newNote = [...notes, note]
         setNotes(newNote as Array<Note>)
-        console.log(newNote)
         reset()
     }
 
@@ -44,5 +43,5 @@ export default function Form() {
             {errors.postItNote && <span>Este Campo es requerido</span>}
             <input className="p-4 bg-green-400 rounded-md" type="submit" />
         </form>
-    );
+    )
 }
