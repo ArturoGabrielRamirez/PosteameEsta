@@ -7,13 +7,13 @@ import { redirect } from "next/navigation"
 
 
 export default function NoteDetails({ res }: { res: any }) {
-    if (!res || !res.notes) {
-        return redirect("/")
-    }
     const [isActive, setIsActive] = useState<boolean>(true)
     const notes = res.notes[0]
     const [title, setTitle] = useState(notes.title)
     const [postItNote, setPostItNote] = useState(notes.postItNote)
+    if (!res || !res.notes) {
+        return redirect("/")
+    }
 
     const handleClickSave = async () => {
         const data = { title, postItNote }
