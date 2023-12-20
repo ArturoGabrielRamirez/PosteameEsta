@@ -1,6 +1,6 @@
 {
   "name": "posteame-esta",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,7 @@
   "dependencies": {
     "mongodb": "^6.3.0",
     "next": "14.0.1",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",

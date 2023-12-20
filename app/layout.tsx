@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import SesionProviders from './components/SesionProviders'
 import './globals.css'
+import AppBar from './components/AppBar'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,7 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html className='h-screen' lang="en">
-      <body className={`${inter.className} h-screen`}>{children}</body>
+      <body className={`${inter.className} h-screen`}>
+        <SesionProviders>
+          <AppBar />
+          {children}
+        </SesionProviders>
+      </body>
     </html>
   )
 }

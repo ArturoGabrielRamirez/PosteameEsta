@@ -16,8 +16,8 @@ Esta aplicación utiliza las siguientes dependencias:
 
 ```json
 {
-  "name": "posteame-esta",
-  "version": "0.1.0",
+"name": "posteame-esta",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,6 +28,7 @@ Esta aplicación utiliza las siguientes dependencias:
   "dependencies": {
     "mongodb": "^6.3.0",
     "next": "14.0.1",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
