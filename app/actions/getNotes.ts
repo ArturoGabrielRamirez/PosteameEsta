@@ -4,7 +4,7 @@ import clientPromise from "@/auth/adapter"
 import { ObjectId } from "mongodb"
 
 
-export const getNotes = async (id: any) => {
+export const getNotes = async (id: any, userEmail: string) => {
     const client = await clientPromise
     const db = client.db()
 
@@ -20,7 +20,7 @@ export const getNotes = async (id: any) => {
         }
         notes = [note]
     } else {
-        const notesCursor = db.collection('notes').find({})
+        const notesCursor = db.collection('notes').find({ userEmail: userEmail })
         notes = await notesCursor.toArray()
         if (!notes || notes.length === 0) {
             return ({ error: 'Notas no encontradas', status: 404, notes: [] })
@@ -30,7 +30,7 @@ export const getNotes = async (id: any) => {
     const serializableNotes = notes.map(note => ({
         ...note,
         _id: note._id.toString(),
-      }));
+    }));
 
     return ({ error: "", status: 200, notes: serializableNotes })
 }

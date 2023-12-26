@@ -13,12 +13,12 @@ type FormData = {
 }
 
 interface Note {
-    _id: string
-    title: string
-    postItNote: string
+    _id: string;
+    title: string;
+    postItNote: string;
 }
 
-export default function Form() {
+export default function Form({ userEmail }: any) {
     const [notes, setNotes] = useState<Array<{ _id: string | ObjectId; title: any; postItNote: any; } | Note>>([])
 
     const {
@@ -29,7 +29,7 @@ export default function Form() {
     } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
-        const { note } = await createNewPost(data)
+        const { note } = await createNewPost(data, userEmail as string)
         const newNote = [...notes, note]
         setNotes(newNote as Array<Note>)
         reset()
@@ -41,7 +41,7 @@ export default function Form() {
             {errors.title && <span>Este Campo es requerido</span>}
             <TextareaAutosize placeholder="Post It" className="text-black rounded-md p-2" {...register("postItNote", { required: true })} />
             {errors.postItNote && <span>Este Campo es requerido</span>}
-            <input className="p-4 bg-green-400 rounded-md" type="submit" />
+            <input className="p-4 bg-green-400 rounded-md" type="submit" value="Guardar Nota" />
         </form>
     )
 }
