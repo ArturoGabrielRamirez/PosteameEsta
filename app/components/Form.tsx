@@ -5,6 +5,7 @@ import { useState } from "react"
 import { createNewPost } from "@/app/actions/createNewPost"
 import TextareaAutosize from 'react-textarea-autosize'
 import { ObjectId } from "mongodb"
+import Buttons from "./Buttons"
 
 
 type FormData = {
@@ -18,7 +19,7 @@ interface Note {
     postItNote: string;
 }
 
-export default function Form({ userEmail }: any) {
+export default function Form({ userEmail, editStates }: any) {
     const [notes, setNotes] = useState<Array<{ _id: string | ObjectId; title: any; postItNote: any; } | Note>>([])
 
     const {
@@ -37,11 +38,14 @@ export default function Form({ userEmail }: any) {
 
     return (
         <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
-            <input placeholder="Title" className="text-black rounded-md p-2" {...register("title", { required: true })} />
-            {errors.title && <span>Este Campo es requerido</span>}
-            <TextareaAutosize placeholder="Post It" className="text-black rounded-md p-2" {...register("postItNote", { required: true })} />
-            {errors.postItNote && <span>Este Campo es requerido</span>}
-            <input className="p-4 bg-green-400 rounded-md" type="submit" value="Guardar Nota" />
+            <TextareaAutosize maxRows={2} placeholder="Title" className="text-black rounded-md p-2" {...register("title", { required: true })} />
+            {errors.title && <span className="text-red-500">Este Campo es requerido</span>}
+            <TextareaAutosize minRows={2} maxRows={4} placeholder="Post It" className="text-black rounded-md p-2" {...register("postItNote", { required: true })} />
+            {errors.postItNote && <span className="text-red-600">Este Campo es requerido</span>}
+            <div className="flex justify-between gap-2">
+                <input className="p-4 bg-green-400 rounded-md" type="submit" value="Posteame Esta!" />
+                <Buttons type="cancel" editStates={editStates} />
+            </div>
         </form>
     )
 }

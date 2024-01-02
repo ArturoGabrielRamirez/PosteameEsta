@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import SesionProviders from './components/SesionProviders'
 import './globals.css'
 import AppBar from './components/AppBar'
+import { ThemeProvider } from './components/theme-provider'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,10 +21,18 @@ export default function RootLayout({
   return (
     <html className='h-screen' lang="en">
       <body className={`${inter.className} h-screen`}>
-        <SesionProviders>
-          <AppBar />
-          {children}
-        </SesionProviders>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <div className='xl:flex h-screen min-w-min'>
+            <SesionProviders>
+              <AppBar />
+              {children}
+            </SesionProviders>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

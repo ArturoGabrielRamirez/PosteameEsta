@@ -4,7 +4,7 @@ import { deleteNote } from "../actions/deleteNote"
 import Link from "next/link"
 
 
-type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save'
+type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new'
 
 export default function Buttons({ type, data, editStates }: { type: ButtonType, data?: any, editStates?: any }) {
     const { handleClickSave, setIsActive } = editStates || {}
@@ -13,25 +13,26 @@ export default function Buttons({ type, data, editStates }: { type: ButtonType, 
         const res = await deleteNote(data)
     }
 
-    const handleClickEdit = () => {
+    const handleClickToFalse = () => {
         setIsActive(false)
     }
 
-    const handleClickCancel = () => {
+    const handleClickToTrue = () => {
         setIsActive(true)
     }
 
     const buttonTypes = {
-        'view': <Link href={`/note/${data}`} className="bg-cyan-700 rounded-sm p-2 px-5">View</Link>,
-        'delete': <button onClick={handleClickDelete} className="bg-red-600 rounded-sm p-2">Delete</button>,
-        'edit': <button onClick={handleClickEdit} className="bg-teal-400 rounded-sm p-2 px-5">Edit</button>,
-        'cancel': <button onClick={handleClickCancel} className="bg-slate-700 rounded-sm p-2 px-5">Cancel</button>,
-        'save': <button onClick={handleClickSave} className="bg-green-400 rounded-sm p-2">Save</button>
+        'view': <Link href={`/note/${data}`} className="bg-cyan-800 rounded-md p-2">Veamos esta</Link>,
+        'delete': <button onClick={handleClickDelete} className="bg-red-600 rounded-md p-2">Eliminame esta</button>,
+        'edit': <button onClick={handleClickToTrue} className="bg-teal-400 rounded-md p-2 ">Editame esta</button>,
+        'cancel': <button onClick={handleClickToFalse} className="bg-slate-700 rounded-md p-2">Cancelame esta</button>,
+        'save': <button onClick={handleClickSave} className="bg-emerald-500 rounded-md p-2">Reposteame esta</button>,
+        'new': <button onClick={handleClickToTrue} className="bg-emerald-600 rounded-sm p-2 absolute min-h-[100px] min-w-full"><p className="relative z-10">Hagamos una nueva nota</p></button>
     }
 
     return (
-        <div className="flex justify-around">
+        <>
             {buttonTypes[type]}
-        </div>
+        </>
     )
 }
