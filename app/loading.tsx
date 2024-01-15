@@ -19,7 +19,7 @@ export default function Loading() {
     }, [actualImage, imagenes])
 
     return (
-        <div className='grow grid place-content-center'>
+        <div className='granulated grow w-full h-full grid place-content-center border-4 border-bouble shadow-sm shadow-amber-950 border-amber-950'>
             <Image priority={true} className="" alt="loader" src={imagenes[actualImage]} width={200} height={200} />
         </div>
     )

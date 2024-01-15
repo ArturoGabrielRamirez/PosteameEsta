@@ -5,7 +5,9 @@ import { useState } from "react"
 import { createNewPost } from "@/app/actions/createNewPost"
 import TextareaAutosize from 'react-textarea-autosize'
 import { ObjectId } from "mongodb"
+import { Button } from "@/components/ui/button"
 import Buttons from "./Buttons"
+import { CheckSquare } from "lucide-react"
 
 
 type FormData = {
@@ -37,13 +39,18 @@ export default function Form({ userEmail, editStates }: any) {
     }
 
     return (
-        <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
-            <TextareaAutosize maxRows={2} placeholder="Title" className="text-black rounded-md p-2" {...register("title", { required: true })} />
+        <form className="flex flex-col justify-center max-w-full gap-2 sm:gap-3 sm:p-2" onSubmit={handleSubmit(onSubmit)}>
+            <TextareaAutosize maxRows={2} placeholder="Title" className="rounded-md sm:p-2 resize-none"  {...register("title", { required: true })} />
             {errors.title && <span className="text-red-500">Este Campo es requerido</span>}
-            <TextareaAutosize minRows={2} maxRows={4} placeholder="Post It" className="text-black rounded-md p-2" {...register("postItNote", { required: true })} />
+            <TextareaAutosize minRows={2} maxRows={4} placeholder="Post It" className="rounded-md sm:p-2 resize-none" {...register("postItNote", { required: true })} />
             {errors.postItNote && <span className="text-red-600">Este Campo es requerido</span>}
-            <div className="flex justify-between gap-2">
-                <input className="p-4 bg-green-400 rounded-md" type="submit" value="Posteame Esta!" />
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-2">
+                <Button asChild className="bg-green-400">
+                    <button className="gap-2" >
+                        <CheckSquare className="sm:hidden"/>
+                        <p className="hidden sm:block">Posteame Esta!</p>
+                    </button>
+                </Button>
                 <Buttons type="cancel" editStates={editStates} />
             </div>
         </form>
