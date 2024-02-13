@@ -63,7 +63,7 @@ export default function NoteDetails({ res }: { res: any }) {
                         </>
                     ) : (
                         <>
-                            <h3 id='title' className='text-2xl xl:text-7xl  break-words sm:font-extrabold font-sans'>{title}</h3>
+                            <h3 id='title' className='text-2xl xl:text-7xl break-words sm:font-extrabold font-sans min-h-[84px]'>{title}</h3>
                             <p id='postItNote' className='text-xl xl:text-4xl break-words sm:font-extrabold font-sans'>{postItNote}</p>
                         </>
 

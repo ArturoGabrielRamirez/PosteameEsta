@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { buttonConfig } from '../buttonOptions/buttonConfig'
 import React from 'react'
+import ConfirmAlert from './ConfirmAlert'
 
 type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new'
 
@@ -28,15 +29,26 @@ export default function Buttons({ option, data, editStates }: { option: ButtonTy
                 </Button>
             </>
             :
-            <>
-                <Button option={selectedOption}
-                    onClick={selectedOption.action}
-                    className={selectedOption.className}
-                >
-                    <span>{React.createElement(selectedOption.icon)}</span>
-                    <p className={selectedOption.classNameText}>{selectedOption.text}</p>
-                </Button>
-            </>
-
+            (option === 'delete' ?
+                <>
+                    <Button
+                        className={selectedOption.className}
+                    >
+                        <ConfirmAlert
+                            option={selectedOption}
+                        />
+                    </Button>
+                </>
+                :
+                <>
+                    <Button option={selectedOption}
+                        onClick={selectedOption.action}
+                        className={selectedOption.className}
+                    >
+                        <span>{React.createElement(selectedOption.icon)}</span>
+                        <p className={selectedOption.classNameText}>{selectedOption.text}</p>
+                    </Button>
+                </>
+            )
     )
 }

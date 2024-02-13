@@ -41,12 +41,12 @@ export default function Form({ userEmail, editStates }: any) {
     }
 
     return (
-        <form className='flex flex-col justify-center max-w-full gap-2 sm:gap-3 sm:p-2' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col justify-center min-w-full gap-2 sm:gap-3 sm:p-2' onSubmit={handleSubmit(onSubmit)}>
             <TextareaAutosize maxRows={2} placeholder='Title' className='rounded-md sm:p-2 resize-none'  {...register('title', { required: true })} />
             {errors.title && <span className='text-red-500'>Este Campo es requerido</span>}
             <TextareaAutosize minRows={2} maxRows={4} placeholder='Post It' className='rounded-md sm:p-2 resize-none' {...register('postItNote', { required: true })} />
             {errors.postItNote && <span className='text-red-600'>Este Campo es requerido</span>}
-            <div className='flex flex-col sm:flex-row sm:justify-between gap-2'>
+            <div className='gap-2 flex flex-col'>
                 <Button asChild className='bg-green-400'>
                     <button className='gap-2' >
                         <CheckSquare />

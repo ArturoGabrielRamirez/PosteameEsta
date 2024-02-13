@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     <main className="granulated flex flex-col items-center justify-center bg-gradient-to-br sm:p-2 shadow-md shadow-[rgba(0,0,0,0.8)] h-full w-full flex-1">
-      <div className="flex justify-between w-full grow">
+      <div className="flex justify-between w-full">
         <Nail />
         <Nail />
       </div>
