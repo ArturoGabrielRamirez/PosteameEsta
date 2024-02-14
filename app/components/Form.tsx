@@ -52,7 +52,7 @@ export default function Form({ userEmail, editStates }: any) {
             <div className='gap-2 overflow-hidden flex flex-col'>
                 <Button className='bg-green-400'>
                     <CheckSquare />
-                    <p className='hidden sm:block'>Posteame Esta!</p>
+                    <p className='hidden sm:block'>Posteame Esta! Test</p>
                 </Button>
                 <Buttons option='cancel' editStates={editStates} />
             </div>
