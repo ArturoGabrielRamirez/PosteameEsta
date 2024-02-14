@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import loader1 from "@/public/image/test-loader1.png"
 import loader2 from "@/public/image/test-loader2.png"
 import loader3 from "@/public/image/test-loader3.png"
@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 export default function Loading() {
     const [actualImage, setActualImage] = useState(0)
-    const imagenes = [loader1, loader2, loader3, loader4]
+    const imagenes = useMemo(() => [loader1, loader2, loader3, loader4], [])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
