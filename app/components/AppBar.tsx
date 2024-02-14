@@ -32,7 +32,7 @@ export default function AppBar() {
                                     <MiniPushPin />
                                 </div>
                                 <div className="absolute max-w-[150px] min-h-[150px] sm:max-w-[200px] sm:min-h-[200px] md:max-w-[250px] md:min-h-[250px]  xl:max-w-[250px] xl:min-h-[250px] w-full -bottom-3">
-                                    <Image priority={true} alt="Imagen de gato enojado, logo de la pagina" src={logo} fill className="self-end xl:self-center p-1 sm:pl-2 xl:pl-0 z-10 -rotate-3 h-full w-full absolute" />
+                                    <Image alt="Imagen de gato enojado, logo de la pagina" src={logo} fill className="self-end xl:self-center p-1 sm:pl-2 xl:pl-0 z-10 -rotate-3 h-full w-full absolute"/>
                                 </div>
                             </PaperBG>
                         </div>
@@ -60,7 +60,7 @@ export default function AppBar() {
                             </div>
                             <div className="absolute -rotate-90 sm:rotate-0 rounded-md p-1 md:p-2 lg:p-4 xl:p-6 flex max-[639px]:flex-col sm:flex-col gap-1 md:gap-2 sm:items-stretch xl:m-4 sm:max-w-[250px] md:max-w-[300px]">
                                 <div className="flex border-4 border-orange-950 gap-1 rounded-md sm:gap-2 justify-center sm:justify-between items-center bg-gradient-to-b from-[#ffe501] via-[#fcc101] to-[#b29400]">
-                                    <Image priority={true} alt="User Image" className="rounded-full relative p-1 min-[380px]:p-0 max-[639px]:min-h-[50px] max-[639px]:max-w-[50px] md:w-[80px] md:min-h-[80px]" height={100} src={session?.user?.image || ""} width={100}></Image>
+                                    <Image alt="User Image" className="rounded-full relative p-1 min-[380px]:p-0 max-[639px]:min-h-[50px] max-[639px]:max-w-[50px] md:w-[80px] md:min-h-[80px]" height={100} src={session?.user?.image || ""} width={100}></Image>
                                     <h2 className="hidden sm:block font-bold max-w-[146px] sm:text-lg xl:text-2xl">Bienvenido {session?.user?.name}</h2>
                                 </div>
                                 <div className="flex gap-1 flex-col sm:flex-row sm:gap-2 xl:justify-between">
@@ -83,7 +83,7 @@ export default function AppBar() {
                                     <MiniPushPin />
                                 </div>
                                 <div className="absolute max-w-[150px] min-h-[150px] sm:max-w-[200px] sm:min-h-[200px] md:max-w-[250px] md:min-h-[250px]  xl:max-w-[280px] xl:min-h-[280px] w-full -bottom-3">
-                                    <Image priority={true} alt="Imagen de gato enojado, logo de la pagina" src={logo} fill className="self-end xl:self-center p-1 sm:pl-2 xl:pl-0 z-10 -rotate-3 h-full w-full absolute" />
+                                    <Image alt="Imagen de gato enojado, logo de la pagina" src={logo} fill className="self-end xl:self-center p-1 sm:pl-2 xl:pl-0 z-10 -rotate-3 h-full w-full absolute" />
                                 </div>
                             </PaperBG>
                         </div>

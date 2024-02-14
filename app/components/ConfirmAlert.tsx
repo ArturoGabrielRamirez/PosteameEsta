@@ -10,13 +10,17 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
+import { Button } from '@/components/ui/button'
 
 export default function ConfirmAlert({ option }: { option: any }) {
     return (
         <AlertDialog>
-            <AlertDialogTrigger><div className='flex'>
-                <span>{React.createElement(option.icon)}</span>
-                <p className={option.classNameText}>{option.text}</p></div></AlertDialogTrigger>
+            <AlertDialogTrigger asChild>
+                <Button className={option.className}>
+                    <span>{React.createElement(option.icon)}</span>
+                    <p className={option.classNameText}>{option.text}</p>
+                </Button>
+            </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>Estas seguro que queres eliminar esta Nota?</AlertDialogTitle>

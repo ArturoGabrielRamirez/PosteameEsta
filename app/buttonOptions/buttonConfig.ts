@@ -24,7 +24,7 @@ export const buttonConfig = (propsData: { data: any; handleClickSave: any; setIs
     },
     'delete': {
         action: () => handleClickDelete({ data: propsData.data }),
-        className: 'bg-red-600',
+        className: 'bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Trash2,
         text: 'Eliminame Esta'

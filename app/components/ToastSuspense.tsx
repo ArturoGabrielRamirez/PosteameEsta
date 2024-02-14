@@ -2,11 +2,13 @@
 
 import { toast } from "sonner"
 
-export async function ToastSuspense({ paramsToast }: any) {
+export async function ToastSuspense({ paramsToast, ToastMethod }: { paramsToast: any; ToastMethod: keyof typeof toast }) {
+
+    
 
     return (
         <div>
-            {toast.success(`${paramsToast}`)}
+            {toast[ToastMethod](paramsToast)}
         </div>
     )
 

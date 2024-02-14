@@ -31,13 +31,9 @@ export default function Buttons({ option, data, editStates }: { option: ButtonTy
             :
             (option === 'delete' ?
                 <>
-                    <Button
-                        className={selectedOption.className}
-                    >
-                        <ConfirmAlert
-                            option={selectedOption}
-                        />
-                    </Button>
+                    <ConfirmAlert
+                        option={selectedOption}
+                    />
                 </>
                 :
                 <>

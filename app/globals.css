@@ -118,7 +118,7 @@
 }
 
 .bgLogo {
-  background-image: url("/image/bgForLogo");
+  background-image: url("/image/bgForLogo.png");
   background-size: contain;
   width: 100%;
   height: 100%;

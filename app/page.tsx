@@ -22,7 +22,7 @@ export default async function Home() {
       {session ?
         <div className="gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-2 sm:px-4 py-2 sm:py-4 xl:gap-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 grow">
           <CreateNoteClient userEmail={userEmail} />
-          <Suspense fallback={<ToastSuspense paramsToast="Nota Guardada con exito" />}>
+          <Suspense fallback={<ToastSuspense ToastMethod="success" paramsToast="Nota Guardada con exito" />}>
             <NoteList />
           </Suspense>
         </div> :
