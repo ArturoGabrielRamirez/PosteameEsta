@@ -28,7 +28,7 @@ export default async function Home() {
         </div> :
         <div className="relative flex w-full h-full">
           <PaperBG>
-            <h1 className="sm:text-4xl p-16 max-w-[600px] absolute">Bienvenido a "Posteame Esta", una aplicación de Post-It. Inicia sesión para disfrutar de una experiencia superior y mayor privacidad en tus notas.</h1>
+          <h1 className="sm:text-4xl p-16 max-w-[600px] absolute">Bienvenido a &quot;Posteame Esta&quot;, una aplicación de Post-It. Inicia sesión para disfrutar de una experiencia superior y mayor privacidad en tus notas.</h1>
           </PaperBG>
         </div>
       }

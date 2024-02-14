@@ -12,11 +12,11 @@ export default function Loading() {
     const imagenes = useMemo(() => [loader1, loader2, loader3, loader4], [])
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            setActualImage((actualImage + 1) % imagenes.length)
-        }, 300)
-        return () => clearInterval(intervalId)
-    }, [actualImage, imagenes])
+    const intervalId = setInterval(() => {
+        setActualImage((prevImage) => (prevImage + 1) % imagenes.length);
+    }, 300);
+    return () => clearInterval(intervalId);
+}, [imagenes]);
 
     return (
         <div className='granulated grow w-full h-full grid place-content-center border-4 border-bouble shadow-sm shadow-amber-950 border-amber-950'>
