@@ -1,14 +1,11 @@
 'use client'
 
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { useState } from 'react'
 import { createNewPost } from '@/app/actions/createNewPost'
 import TextareaAutosize from 'react-textarea-autosize'
-import { ObjectId } from 'mongodb'
-import { Button } from '@/components/ui/button'
 import Buttons from './Buttons'
-import { CheckSquare } from 'lucide-react'
 import { toast } from 'sonner'
+import { useNotesContext } from './NotesProvider'
 
 
 type FormData = {
@@ -17,15 +14,15 @@ type FormData = {
 }
 
 interface Note {
-    _id: string
-    title: string
-    postItNote: string
+    _id: string,
+    postItNote: string;
+    title: string;
+    userEmail: string;
 }
 
 export default function Form({ userEmail, editStates }: any) {
-    const [notes, setNotes] = useState<Array<{ _id: string | ObjectId; title: any; postItNote: any; } | Note>>([])
-
     const { setIsActive } = editStates
+    const { notes, setNotes } = useNotesContext()
     const {
         register,
         handleSubmit,
@@ -34,10 +31,12 @@ export default function Form({ userEmail, editStates }: any) {
     } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
-        toast.loading('Guardando Nota')
+        toast.loading('Guardando Nota...')
         const { note } = await createNewPost(data, userEmail as string)
+        toast.dismiss()
+        toast.success('Nota Guardada')
         const newNote = [...notes, note]
-        setNotes(newNote as Array<Note>)
+        setNotes(newNote as Note[])
         reset()
         setIsActive(false)
 
@@ -50,10 +49,7 @@ export default function Form({ userEmail, editStates }: any) {
             <TextareaAutosize minRows={2} maxRows={4} placeholder='Post It' className='rounded-md sm:p-2 resize-none' {...register('postItNote', { required: true })} />
             {errors.postItNote && <span className='text-red-600'>Este Campo es requerido</span>}
             <div className='gap-2 overflow-hidden flex flex-col'>
-                <Button className='bg-green-400'>
-                    <CheckSquare />
-                    <p className='hidden sm:block'>Posteame Esta! Test</p>
-                </Button>
+                <Buttons option='create' editStates={setIsActive} />
                 <Buttons option='cancel' editStates={editStates} />
             </div>
         </form>

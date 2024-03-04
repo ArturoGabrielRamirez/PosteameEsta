@@ -1,8 +1,15 @@
-import { PenSquare, Eye, Trash2, PenLineIcon, Ban, Save } from 'lucide-react'
+import { PenSquare, Eye, Trash2, PenLineIcon, Ban, Save, CheckSquare } from 'lucide-react'
 import { deleteNote } from '../actions/deleteNote'
+import { getNotes } from '../actions/getNotes'
 
-const handleClickDelete = async (propsData: { data: any }) => {
+
+const handleClickDelete = async (propsData: { data: any }, setNotes: any, propsQuery: { userEmail: string, limit: number, currentPage: number }) => {
+    const { userEmail, limit, currentPage } = propsQuery
+    const currentPageToString = currentPage.toString()
     const res = await deleteNote(propsData.data)
+    const { notes } = await getNotes(undefined, userEmail, currentPageToString, limit)
+    setNotes(notes)
+    console.log(notes, propsData.data)
     return res
 }
 
@@ -14,7 +21,7 @@ const handleClickToTrue = (propsData: { setIsActive: (arg0: boolean) => void }) 
     propsData.setIsActive(true)
 }
 
-export const buttonConfig = (propsData: { data: any; handleClickSave: any; setIsActive: ((arg0: boolean) => void) }) => ({
+export const buttonConfig = (propsData: { data: any; handleClickSave: any; setIsActive: ((arg0: boolean) => void) }, setNotes: any, propsQuery: { userEmail: string, limit: number, currentPage: number }) => ({
     'view': {
         action: `/note/${propsData.data}`,
         className: 'bg-cyan-800',
@@ -23,7 +30,7 @@ export const buttonConfig = (propsData: { data: any; handleClickSave: any; setIs
         text: 'Veamos Esta'
     },
     'delete': {
-        action: () => handleClickDelete({ data: propsData.data }),
+        action: () => handleClickDelete({ data: propsData.data }, setNotes, { userEmail: propsQuery.userEmail, currentPage: propsQuery.currentPage, limit: propsQuery.limit }),
         className: 'bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Trash2,
@@ -42,7 +49,7 @@ export const buttonConfig = (propsData: { data: any; handleClickSave: any; setIs
     },
     'cancel': {
         action: () => handleClickToFalse({
-            setIsActive:() => {
+            setIsActive: () => {
                 propsData.setIsActive(false)
             },
         }),
@@ -68,5 +75,13 @@ export const buttonConfig = (propsData: { data: any; handleClickSave: any; setIs
         classNameText: 'hidden sm:block',
         icon: PenSquare,
         text: 'Escribime Esta'
+    },
+    'create': {
+        action: undefined,
+        className: 'bg-green-400',
+        classNameText: 'hidden sm:block',
+        icon: CheckSquare,
+        text: 'Posteame Esta!'
+
     }
 })

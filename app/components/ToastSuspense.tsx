@@ -2,9 +2,9 @@
 
 import { toast } from "sonner"
 
-export async function ToastSuspense({ paramsToast, ToastMethod }: { paramsToast: any; ToastMethod: keyof typeof toast }) {
+export function ToastSuspense({ paramsToast, ToastMethod }: { paramsToast: any; ToastMethod: keyof typeof toast }) {
 
-    
+    console.log(paramsToast, ToastMethod)
 
     return (
         <div>

@@ -10,7 +10,7 @@ export const deleteNote = async (data: any) => {
     const db = client.db()
 
     try {
-        const deleteResult = await db.collection("notes").deleteOne({ _id: new ObjectId(data._id) })
+        const deleteResult = await db.collection("notes").deleteOne({ _id: new ObjectId(data) })
         revalidatePath("/")
         return ({ result: deleteResult })
     } catch {

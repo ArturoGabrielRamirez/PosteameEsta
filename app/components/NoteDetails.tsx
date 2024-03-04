@@ -13,6 +13,7 @@ export default function NoteDetails({ res }: { res: any }) {
     const notes = res?.notes ? res.notes[0] : { title: '', postItNote: '' }
     const [title, setTitle] = useState(notes.title)
     const [postItNote, setPostItNote] = useState(notes.postItNote)
+
     if (!res || !res.notes) {
         return redirect('/')
     }
@@ -75,7 +76,7 @@ export default function NoteDetails({ res }: { res: any }) {
                     {!isActive ? (
                         <div className='flex justify-around p-1 sm:p-4'>
                             <Buttons option='edit' editStates={editStates} />
-                            <Buttons option='delete' data={notes} />
+                            <Buttons option='delete' data={notes._id} />
                         </div>
                     ) : (
                         <div className='flex justify-around p-1 sm:p-4'>

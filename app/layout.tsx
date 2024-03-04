@@ -33,7 +33,7 @@ export default function RootLayout({
               <div className='flex bg-gradient-to-bl from-[#92410ee9] via-[#733007] to-[#532508] border-t-8 border-r-0 border-b-8 border-l-8 border-t-[#7c370fde] border-orange-950 border-double p-4'>
                 <AppBar />
               </div>
-              <div className='flex relattive flex-col w-screen items-center justify-center bg-gradient-to-br from-[#92410ee9] via-[#733007] to-[#532508] p-4 border-t-8 border-r-8 border-b-8 border-l-0 border-t-[#7c370fde] border-orange-950 border-double'>
+              <div className='flex relative flex-col w-screen items-center justify-center bg-gradient-to-br from-[#92410ee9] via-[#733007] to-[#532508] p-4 border-t-8 border-r-8 border-b-8 border-l-0 border-t-[#7c370fde] border-orange-950 border-double'>
                 {children}
                 <Footer />
               </div>

@@ -5,15 +5,20 @@ import { Button } from '@/components/ui/button'
 import { buttonConfig } from '../buttonOptions/buttonConfig'
 import React from 'react'
 import ConfirmAlert from './ConfirmAlert'
+import { useNotesContext } from '../components/NotesProvider'
 
-type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new'
+type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new' | 'create'
+
 
 export default function Buttons({ option, data, editStates }: { option: ButtonType, data?: any, editStates?: any }) {
+    const { setNotes, userEmail, limit, currentPage } = useNotesContext()
     const { handleClickSave, setIsActive } = editStates || {}
 
-    const propsData = { data, handleClickSave, setIsActive }
 
-    const selectedOption = buttonConfig(propsData)[option]
+    const propsData = { data, handleClickSave, setIsActive }
+    const propsQuery = { userEmail, limit, currentPage }
+
+    const selectedOption = buttonConfig(propsData, setNotes, propsQuery as any)[option]
 
     return (
         option === 'view' ?
@@ -29,22 +34,30 @@ export default function Buttons({ option, data, editStates }: { option: ButtonTy
                 </Button>
             </>
             :
-            (option === 'delete' ?
-                <>
-                    <ConfirmAlert
-                        option={selectedOption}
-                    />
-                </>
+            option === 'create' ?
+                <Button
+                    option={selectedOption}
+                    className={selectedOption.className}>
+                    <span>{React.createElement(selectedOption.icon)}</span>
+                    <p className={selectedOption.classNameText}>{selectedOption.text}</p>
+                </Button>
                 :
-                <>
-                    <Button option={selectedOption}
-                        onClick={selectedOption.action}
-                        className={selectedOption.className}
-                    >
-                        <span>{React.createElement(selectedOption.icon)}</span>
-                        <p className={selectedOption.classNameText}>{selectedOption.text}</p>
-                    </Button>
-                </>
-            )
+                (option === 'delete' ?
+                    <>
+                        <ConfirmAlert
+                            option={selectedOption}
+                        />
+                    </>
+                    :
+                    <>
+                        <Button option={selectedOption}
+                            onClick={selectedOption.action}
+                            className={selectedOption.className}
+                        >
+                            <span>{React.createElement(selectedOption.icon)}</span>
+                            <p className={selectedOption.classNameText}>{selectedOption.text}</p>
+                        </Button>
+                    </>
+                )
     )
 }
