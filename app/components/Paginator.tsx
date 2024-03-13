@@ -21,14 +21,12 @@ export default function Paginator() {
         notes
     } = useNotesContext()
 
-    const validatedArray = notes.length === 0 ? 'hidden' : 'block'
-    const validatedPage = currentPage === 1 ? 'hidden' : 'block '
 
     return (
         <Pagination>
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevious href="#" onClick={handlePrevious} className={`${validatedPage}`} />
+                    <PaginationPrevious href="#" onClick={handlePrevious} className={`${currentPage === 1 ? 'hidden' : 'block '}`} />
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink href="#">{currentPage}</PaginationLink>
@@ -37,7 +35,7 @@ export default function Paginator() {
                     <PaginationEllipsis />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationNext href="#" onClick={handleNext} className={`${validatedArray}`} />
+                    <PaginationNext href="#" onClick={handleNext} className={`${notes.length === 0 ? 'hidden' : 'block'}`} />
                 </PaginationItem>
             </PaginationContent>
         </Pagination>

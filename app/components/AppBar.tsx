@@ -9,11 +9,12 @@ import ModeToggle from "./ModeToggle"
 import PaperBG from "./PaperBG"
 import Nail from "./Nail"
 import MiniPushPin from "./MiniPushPin"
+import { useNotesContext } from "./NotesProvider"
 
 
 export default function AppBar() {
+    const { redirectPath, concatenatedPath } = useNotesContext()
     const { data: session } = useSession()
-
     let sessionBoolean = session && session.user ? true : false
 
 
@@ -25,14 +26,14 @@ export default function AppBar() {
             </div>
             {sessionBoolean ?
                 <div className="flex items-center flex-row justify-between xl:flex-col flex-1">
-                    <Link href="/" className="">
-                        <div className="flex items-center justify-center rotate-3 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative max-w-[220px] sm:max-w-[300px] md:max-w-[400px] xl:max-w-[380px] xl:max-h-[300px] xl:-top-4">
+                    <Link href={`${concatenatedPath}`}>
+                        <div className="flex items-center justify-center rotate-3 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative max-w-[220px] sm:max-w-[300px] md:max-w-[400px] xl:max-w-[380px] xl:max-h-[300px] xl:-top-4" onClick={redirectPath}>
                             <PaperBG>
                                 <div className="absolute top-2">
                                     <MiniPushPin />
                                 </div>
                                 <div className="absolute max-w-[150px] min-h-[150px] sm:max-w-[200px] sm:min-h-[200px] md:max-w-[250px] md:min-h-[250px]  xl:max-w-[250px] xl:min-h-[250px] w-full -bottom-3">
-                                    <Image alt="Imagen de gato enojado, logo de la pagina" src={logo} fill className="self-end xl:self-center p-1 sm:pl-2 xl:pl-0 z-10 -rotate-3 h-full w-full absolute"/>
+                                    <Image alt="Imagen de gato enojado, logo de la pagina" src={logo} fill className="self-end xl:self-center p-1 sm:pl-2 xl:pl-0 z-10 -rotate-3 h-full w-full absolute" />
                                 </div>
                             </PaperBG>
                         </div>

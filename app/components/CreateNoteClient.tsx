@@ -2,12 +2,12 @@
 
 import Form from './Form'
 import Buttons from './Buttons'
-import { useState } from 'react'
 import Image from 'next/image'
 import bgNewNote from '@/public/image/bgNewNote.png'
+import { useNotesContext } from './NotesProvider'
 
-export default function CreateNoteClient({ userEmail }: any) {
-    const [isActive, setIsActive] = useState<boolean>(false)
+export default function CreateNoteClient() {
+    const { isActive, setIsActive } = useNotesContext()
 
     const editStates = { setIsActive }
 
@@ -21,7 +21,7 @@ export default function CreateNoteClient({ userEmail }: any) {
     } else {
         return (
             <div className='flex rounded-sm bg-gradient-to-b from-[#ffe501] via-[#fcc101] to-[#b29400] max-h-[300px] max-w-[300px] shadow-md shadow-[rgba(0,0,0,0.8)] '>
-                <Form userEmail={userEmail} editStates={editStates} />
+                <Form editStates={editStates} />
             </div>
         )
     }

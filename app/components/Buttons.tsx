@@ -11,7 +11,7 @@ type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new' | 'crea
 
 
 export default function Buttons({ option, data, editStates }: { option: ButtonType, data?: any, editStates?: any }) {
-    const { setNotes, userEmail, limit, currentPage } = useNotesContext()
+    const { setNotes, userEmail, limit, currentPage, savePrevPath } = useNotesContext()
     const { handleClickSave, setIsActive } = editStates || {}
 
 
@@ -26,7 +26,8 @@ export default function Buttons({ option, data, editStates }: { option: ButtonTy
                 <Button
                     asChild
                     option={selectedOption}
-                    className={selectedOption.className}>
+                    className={selectedOption.className}
+                    onClick={savePrevPath}>
                     <Link href={selectedOption.action}>
                         <span>{React.createElement(selectedOption.icon)}</span>
                         <p className={selectedOption.classNameText}>{selectedOption.text}</p>

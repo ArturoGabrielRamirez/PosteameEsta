@@ -7,6 +7,7 @@ export const createNewPost = async (data: any, userEmail: string) => {
     const client = await clientPromise
     const db = client.db()
     const { title, postItNote } = data
+    const createdAt = new Date()
 
     if (!title || !postItNote) {
         return {
@@ -17,10 +18,10 @@ export const createNewPost = async (data: any, userEmail: string) => {
     }
 
     try {
-        const newNote = await db.collection("notes").insertOne({ title, postItNote, userEmail })
+        const newNote = await db.collection("notes").insertOne({ title, postItNote, userEmail, createdAt })
         revalidatePath("/")
         return ({
-            note: { _id: newNote.insertedId.toString(), title, postItNote, userEmail },
+            note: { _id: newNote.insertedId.toString(), title, postItNote, userEmail, createdAt },
             status: 200,
             error: ""
         })

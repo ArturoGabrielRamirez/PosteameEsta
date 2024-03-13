@@ -8,9 +8,11 @@ interface PaperBGProps {
 
 export default function PaperBG({ children }: PaperBGProps) {
     return (
-        <div className="relative bgLogo flex justify-center items-center">
+
+        <div className="flex justify-center items-center">
             {children}
-            <Image alt="Fondo de papel para logo con gato adentro" src={bgForLogo} objectFit="cover"/>
+            <Image alt="Fondo de papel para logo con gato adentro" src={bgForLogo} objectFit="cover" />
         </div>
+
     )
 }

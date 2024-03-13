@@ -4,7 +4,7 @@ import clientPromise from "@/auth/adapter"
 import { ObjectId } from "mongodb"
 
 
-export const getNotes = async (id: any , userEmail: string, currentPage?: any, limit?: any) => {
+export const getNotes = async (id: any, userEmail: string, currentPage?: any, limit?: any) => {
     const client = await clientPromise
     const db = client.db()
     let notes
@@ -20,7 +20,7 @@ export const getNotes = async (id: any , userEmail: string, currentPage?: any, l
         }
         notes = [note]
     } else {
-        const notesCursor = db.collection('notes').find({ userEmail: userEmail }).skip((currentPage - 1) * limitToNumber).limit(limitToNumber)
+        const notesCursor = db.collection('notes').find({ userEmail: userEmail }).sort({ "createdAt": -1 }).skip((currentPage - 1) * limitToNumber).limit(limitToNumber)
         notes = await notesCursor.toArray()
         if (!notes || notes.length === 0) {
             return ({ error: 'Notas no encontradas', status: 404, notes: [] })

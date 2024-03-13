@@ -9,7 +9,6 @@ const handleClickDelete = async (propsData: { data: any }, setNotes: any, propsQ
     const res = await deleteNote(propsData.data)
     const { notes } = await getNotes(undefined, userEmail, currentPageToString, limit)
     setNotes(notes)
-    console.log(notes, propsData.data)
     return res
 }
 

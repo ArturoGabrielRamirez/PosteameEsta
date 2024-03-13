@@ -5,26 +5,22 @@ import Buttons from './Buttons'
 import { useNotesContext } from './NotesProvider'
 import Link from 'next/link'
 import PaperBG from './PaperBG'
-import { revalidatePath } from 'next/cache'
 
 
 export default function NoteList() {
-    const { notes } = useNotesContext()
+    const { notes, redirectPath, concatenatedPath } = useNotesContext()
 
-    const validatedNotes = notes.length === 0 ? 'No hay mas notas para mostrar, haga click aqui para volver a la primera pagina' : null
-    const revalidate = () => {
-        revalidatePath("/")
-    }
+
 
     return (
         <>
-            {validatedNotes !== null &&
+            {(notes.length === 0 ? 'No hay mas notas para mostrar, haga click aqui para volver a la primera pagina' : null) !== null &&
                 (
-                    <Link href='/' onClick={revalidate} >
-                        <div className='flex relative'>
-                        <PaperBG>
-                            <span className='absolute'>{validatedNotes}</span>
-                        </PaperBG>
+                    <Link href={`${concatenatedPath}`}>
+                        <div className='flex relative' onClick={redirectPath}>
+                            <PaperBG>
+                                <span className='absolute'>{notes.length === 0 ? 'No hay mas notas para mostrar, haga click aqui para volver a la primera pagina' : null}</span>
+                            </PaperBG>
                         </div>
                     </Link>
                 )

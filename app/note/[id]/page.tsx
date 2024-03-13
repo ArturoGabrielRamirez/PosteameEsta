@@ -1,5 +1,6 @@
 import NoteDetails from "../../components/NoteDetails"
 import { getNotes } from "@/app/actions/getNotes"
+import { NotesProvider } from "@/app/components/NotesProvider"
 import { getServerSession } from "next-auth"
 
 

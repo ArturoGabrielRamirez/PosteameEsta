@@ -20,9 +20,9 @@ interface Note {
     userEmail: string;
 }
 
-export default function Form({ userEmail, editStates }: any) {
+export default function Form({ editStates }: any) {
     const { setIsActive } = editStates
-    const { notes, setNotes } = useNotesContext()
+    const { notes, setNotes, userEmail } = useNotesContext()
     const {
         register,
         handleSubmit,
@@ -35,11 +35,10 @@ export default function Form({ userEmail, editStates }: any) {
         const { note } = await createNewPost(data, userEmail as string)
         toast.dismiss()
         toast.success('Nota Guardada')
-        const newNote = [...notes, note]
+        const newNote = [note, ...notes]
         setNotes(newNote as Note[])
         reset()
         setIsActive(false)
-
     }
 
     return (

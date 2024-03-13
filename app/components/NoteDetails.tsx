@@ -6,10 +6,11 @@ import { editNote } from '../actions/editNote'
 import { redirect } from 'next/navigation'
 import TextareaAutosize from 'react-textarea-autosize'
 import PushPin from './PushPin'
+import { useNotesContext } from './NotesProvider'
 
 
 export default function NoteDetails({ res }: { res: any }) {
-    const [isActive, setIsActive] = useState<boolean>(false)
+    const {isActive, setIsActive} = useNotesContext()
     const notes = res?.notes ? res.notes[0] : { title: '', postItNote: '' }
     const [title, setTitle] = useState(notes.title)
     const [postItNote, setPostItNote] = useState(notes.postItNote)
