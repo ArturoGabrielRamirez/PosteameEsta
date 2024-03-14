@@ -46,17 +46,17 @@ export function NotesProvider({ children }: { children: ReactNode }) {
 
     const pathname = usePathname()
     const searchParam = useSearchParams()
+    const { replace } = useRouter()
     const pageParam = Number(searchParam.get('page')) || 1
-    const limitParam = searchParam.get('limit') || '10'
-    const [prevPathname, setPrevPathname] = useState('/')
-    const [currentPage, setCurrentPage] = useState(pageParam)
-    const [limit, _setLimit] = useState(limitParam)
+    const limitParam = searchParam.get('limit') || '10' as string
+    const [prevPathname, setPrevPathname] = useState<String>('/')
+    const [currentPage, setCurrentPage] = useState<number>(pageParam)
+    const [limit, _setLimit] = useState<string>(limitParam)
     const [notes, setNotes] = useState<Note[]>([])
     const [isActive, setIsActive] = useState<boolean>(false)
     const [concatenatedPath, setConcatenatedPath] = useState<any>('')
-    const { replace } = useRouter()
     const params = new URLSearchParams(searchParam)
-    const { data: session } = useSession()
+    const { data: session } = useSession<boolean>()
     const userEmail = session?.user?.email as string
 
 

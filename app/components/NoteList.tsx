@@ -11,7 +11,6 @@ export default function NoteList() {
     const { notes, redirectPath, concatenatedPath } = useNotesContext()
 
 
-
     return (
         <>
             {(notes.length === 0 ? 'No hay mas notas para mostrar, haga click aqui para volver a la primera pagina' : null) !== null &&
