@@ -11,7 +11,6 @@ import { NotesContextType } from '../types/types'
 const NotesContext = createContext<NotesContextType>({
     currentPage: 1,
     handlePageChange: () => { },
-    redirectPath: () => { },
     setNotes: (_notes: Note[]) => { },
     isActive: false,
     setIsActive: () => { },
@@ -110,21 +109,11 @@ export function NotesProvider({ children }: ProviderProps) {
 
     }
 
-    const redirectPath = (e: React.MouseEvent) => {
-        e.preventDefault()
-        const newValue = currentPage > 1 ? currentPage / currentPage : 1
-        setCurrentPage(newValue)
-        params.set('page', newValue.toString())
-        params.set('limit', limit)
-        replace(`${prevPathname}?${params.toString()}`)
-        setConcatenatedPath(`${prevPathname}?${params.toString()}`)
-    }
 
     return (
         <NotesContext.Provider value={{
             currentPage,
             handlePageChange,
-            redirectPath,
             setNotes,
             isActive,
             setIsActive,

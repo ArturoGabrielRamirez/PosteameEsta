@@ -14,9 +14,14 @@ import NailGroup from "./NailGroup"
 
 export default function AppBar() {
 
-    const { redirectPath, concatenatedPath } = useNotesContext()
+    const { concatenatedPath, handlePageChange } = useNotesContext()
     const { data: session } = useSession()
     let sessionBoolean = session && session.user ? true : false
+
+    const handleClick = (action: string, e: React.MouseEvent) => {
+        e.preventDefault()
+        handlePageChange(action)
+    }
 
     return (
         <div className='flex bg-gradient-to-bl from-[#92410ee9] via-[#733007] to-[#532508] border-t-8 border-r-0 border-b-8 border-l-8 border-t-[#7c370fde] border-orange-950 border-double p-4'>
@@ -25,7 +30,7 @@ export default function AppBar() {
                 {sessionBoolean ?
                     <div className="flex items-center flex-row justify-between xl:flex-col flex-1">
                         <Link href={`${concatenatedPath}`}>
-                            <div className="rotate-3 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative max-w-[220px] sm:max-w-[300px] md:max-w-[400px] xl:max-w-[380px] xl:max-h-[300px] xl:-top-4" onClick={redirectPath}>
+                            <div className="rotate-3 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative max-w-[220px] sm:max-w-[300px] md:max-w-[400px] xl:max-w-[380px] xl:max-h-[300px] xl:-top-4" onClick={handleClick.bind(null, 'redirect')}>
                                 <PaperBG>
                                     <div className="absolute top-2">
                                         <MiniPushPin />

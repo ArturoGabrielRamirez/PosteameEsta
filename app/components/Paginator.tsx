@@ -23,7 +23,7 @@ export default function Paginator() {
         concatenatedPath
     } = useNotesContext()
 
-    const handleClick = (action: string, e: any) => {
+    const handleClick = (action: string, e: React.MouseEvent) => {
         e.preventDefault()
         handlePageChange(action)
     }

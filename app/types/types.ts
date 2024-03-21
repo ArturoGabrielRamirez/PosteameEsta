@@ -27,8 +27,7 @@ export type propsButtonsQuery = {
 
 export type NotesContextType = {
     currentPage: number,
-    handlePageChange: ( action: any) => any,
-    redirectPath: (e: any) => void,
+    handlePageChange: ( action: string) => void,
     setNotes: (notes: Note[]) => void,
     isActive: boolean,
     setIsActive: (boolean: boolean) => void,
