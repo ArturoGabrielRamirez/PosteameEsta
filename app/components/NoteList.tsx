@@ -3,26 +3,30 @@
 import PushPin from './PushPin'
 import Buttons from './Buttons'
 import { useNotesContext } from './NotesProvider'
-import Link from 'next/link'
 import PaperBG from './PaperBG'
+import MiniPushPinGroup from './MiniPushPinGroup'
 
 
 export default function NoteList() {
-    const { notes, redirectPath, concatenatedPath } = useNotesContext()
-
-
+    const { notes } = useNotesContext()
 
     return (
         <>
-            {(notes.length === 0 ? 'No hay mas notas para mostrar, haga click aqui para volver a la primera pagina' : null) !== null &&
-                (
-                    <Link href={`${concatenatedPath}`}>
-                        <div className='flex relative' onClick={redirectPath}>
-                            <PaperBG>
-                                <span className='absolute'>{notes.length === 0 ? 'No hay mas notas para mostrar, haga click aqui para volver a la primera pagina' : null}</span>
-                            </PaperBG>
-                        </div>
-                    </Link>
+            {
+
+                (notes?.length !== 0 ?
+                    <></> :
+                    <div className='relative flex justify-center items-center'>
+                        <PaperBG>
+                            <div className="flex justify-between absolute top-6 w-full p-1">
+                                <MiniPushPinGroup />
+                            </div>
+                            <span className='absolute'>{'No hay mas notas para mostrar'}</span>
+                            <div className="flex justify-between absolute bottom-6 w-full p-1">
+                                <MiniPushPinGroup />
+                            </div>
+                        </PaperBG>
+                    </div>
                 )
             }
             {notes?.map((note) =>
@@ -41,6 +45,6 @@ export default function NoteList() {
             ))
             }
         </>
-
     )
+
 }

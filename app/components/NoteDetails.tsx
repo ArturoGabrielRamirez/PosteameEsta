@@ -10,7 +10,7 @@ import { useNotesContext } from './NotesProvider'
 
 
 export default function NoteDetails({ res }: { res: any }) {
-    const {isActive, setIsActive} = useNotesContext()
+    const { isActive, setIsActive } = useNotesContext()
     const notes = res?.notes ? res.notes[0] : { title: '', postItNote: '' }
     const [title, setTitle] = useState(notes.title)
     const [postItNote, setPostItNote] = useState(notes.postItNote)
@@ -35,7 +35,7 @@ export default function NoteDetails({ res }: { res: any }) {
         }
     }
 
-    const editStates = { handleClickSave, setIsActive }
+    const editStates = { handleClickSave, isActive, setIsActive }
 
     return (
         <div className='granulated relative h-full w-full'>
@@ -93,4 +93,5 @@ export default function NoteDetails({ res }: { res: any }) {
             </div>
         </div>
     )
+
 }

@@ -6,18 +6,15 @@ import { buttonConfig } from '../buttonOptions/buttonConfig'
 import React from 'react'
 import ConfirmAlert from './ConfirmAlert'
 import { useNotesContext } from '../components/NotesProvider'
-
-type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new' | 'create'
+import { ButtonType } from '../types/types'
 
 
 export default function Buttons({ option, data, editStates }: { option: ButtonType, data?: any, editStates?: any }) {
+    
     const { setNotes, userEmail, limit, currentPage, savePrevPath } = useNotesContext()
-    const { handleClickSave, setIsActive } = editStates || {}
-
-
-    const propsData = { data, handleClickSave, setIsActive }
+    const { handleClickSave, isActive, setIsActive } = editStates || {}
+    const propsData = { data, handleClickSave, isActive, setIsActive }
     const propsQuery = { userEmail, limit, currentPage }
-
     const selectedOption = buttonConfig(propsData, setNotes, propsQuery as any)[option]
 
     return (
@@ -61,4 +58,5 @@ export default function Buttons({ option, data, editStates }: { option: ButtonTy
                     </>
                 )
     )
+
 }

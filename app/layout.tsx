@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Posteame Esta',
-  description: 'App para Post-It',
+  description: 'App de Post-It',
 }
 
 export default function RootLayout({
@@ -29,20 +29,17 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <div className='flex flex-col xl:flex-row w-screen h-screen'>
-            <SesionProviders>
-              <NotesProvider>
-                <div className='flex bg-gradient-to-bl from-[#92410ee9] via-[#733007] to-[#532508] border-t-8 border-r-0 border-b-8 border-l-8 border-t-[#7c370fde] border-orange-950 border-double p-4'>
-                  <AppBar />
-
-                </div>
+          <SesionProviders>
+            <NotesProvider>
+              <div className='flex flex-col xl:flex-row w-screen max-h-screen'>
+                <AppBar />
                 <div className='flex relative flex-col w-screen items-center justify-center bg-gradient-to-br from-[#92410ee9] via-[#733007] to-[#532508] p-4 border-t-8 border-r-8 border-b-8 border-l-0 border-t-[#7c370fde] border-orange-950 border-double'>
                   {children}
                   <Footer />
                 </div>
-              </NotesProvider>
-            </SesionProviders>
-          </div>
+              </div>
+            </NotesProvider>
+          </SesionProviders>
           <Toaster richColors />
         </ThemeProvider>
       </body>

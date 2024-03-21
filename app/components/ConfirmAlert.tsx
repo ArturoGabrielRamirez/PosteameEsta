@@ -12,7 +12,9 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 
+
 export default function ConfirmAlert({ option }: { option: any }) {
+
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -35,4 +37,5 @@ export default function ConfirmAlert({ option }: { option: any }) {
             </AlertDialogContent>
         </AlertDialog>
     )
+
 }

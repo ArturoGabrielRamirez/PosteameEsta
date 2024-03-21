@@ -2,8 +2,7 @@
 
 import { toast } from "sonner"
 
-export function ToastSuspense({ paramsToast, ToastMethod }: { paramsToast: any; ToastMethod: keyof typeof toast }) {
-
+export function ToastSuspense({ ToastMethod, paramsToast }: { ToastMethod: keyof typeof toast, paramsToast: any }) {
 
 
     return (

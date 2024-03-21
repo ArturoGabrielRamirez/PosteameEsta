@@ -1,5 +1,6 @@
 "use client"
 
+import MiniPushPinGroup from "./MiniPushPinGroup"
 import { useNotesContext } from "./NotesProvider"
 import {
     Pagination,
@@ -8,37 +9,66 @@ import {
     PaginationItem,
     PaginationLink,
     PaginationNext,
-    PaginationPrevious,
+    PaginationPrevious
 } from "@/components/ui/pagination"
+import PaperBG from "./PaperBG"
 
 
 export default function Paginator() {
 
     const {
+        notes,
         currentPage,
-        handlePrevious,
-        handleNext,
-        notes
+        handlePageChange,
+        concatenatedPath
     } = useNotesContext()
+
+    const handleClick = (action: string, e: any) => {
+        e.preventDefault()
+        handlePageChange(action)
+    }
 
 
     return (
-        <Pagination>
-            <PaginationContent>
-                <PaginationItem>
-                    <PaginationPrevious href="#" onClick={handlePrevious} className={`${currentPage === 1 ? 'hidden' : 'block '}`} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink href="#">{currentPage}</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationNext href="#" onClick={handleNext} className={`${notes.length === 0 ? 'hidden' : 'block'}`} />
-                </PaginationItem>
-            </PaginationContent>
-        </Pagination>
+        <div className="relative flex justify-center items-center">
+            <PaperBG>
+                <div className="flex absolute top-4 w-full p-2">
+                    <MiniPushPinGroup />
+                </div>
+                <div className="absolute">
+                    <Pagination>
+                        <PaginationContent>
+                            <PaginationItem>
+                                <PaginationPrevious href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'previous')} className={`${currentPage === 1 && 'hidden'} bg-emerald-500`} />
+                            </PaginationItem>
+                            <PaginationItem>
+                                <PaginationLink href={`${concatenatedPath}`} className="bg-emerald-500">{currentPage}</PaginationLink>
+                            </PaginationItem>
+                            <PaginationItem>
+                                <PaginationEllipsis className="bg-emerald-500 rounded-md" />
+                            </PaginationItem>
+                            <PaginationItem>
+                                {notes?.length !== 0 ?
+                                    <PaginationNext href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'next')} className={`${notes?.length === 0 && 'hidden'} bg-emerald-500`} />
+                                    :
+                                    <PaginationLink href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'redirect')} className="bg-emerald-500">
+                                        ⟲
+                                    </PaginationLink>
+                                }
+                            </PaginationItem>
+                        </PaginationContent>
+                    </Pagination>
+                </div>
+                <div className="flex absolute bottom-4 w-full p-2">
+                    <MiniPushPinGroup />
+                </div>
+            </PaperBG>
+        </div>
     )
+
+
+
+
+
 
 }

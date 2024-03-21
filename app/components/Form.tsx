@@ -6,21 +6,12 @@ import TextareaAutosize from 'react-textarea-autosize'
 import Buttons from './Buttons'
 import { toast } from 'sonner'
 import { useNotesContext } from './NotesProvider'
+import { Note } from '../interfaces/interfaces'
+import { FormData } from '../types/types'
 
-
-type FormData = {
-    title: string
-    postItNote: string
-}
-
-interface Note {
-    _id: string,
-    postItNote: string;
-    title: string;
-    userEmail: string;
-}
 
 export default function Form({ editStates }: any) {
+
     const { setIsActive } = editStates
     const { notes, setNotes, userEmail } = useNotesContext()
     const {
@@ -33,10 +24,10 @@ export default function Form({ editStates }: any) {
     const onSubmit: SubmitHandler<FormData> = async (data) => {
         toast.loading('Guardando Nota...')
         const { note } = await createNewPost(data, userEmail as string)
+        const newNote = notes ? [note, ...notes.slice(0, notes.length - 1)] : [note]
+        setNotes(newNote as Note[])
         toast.dismiss()
         toast.success('Nota Guardada')
-        const newNote = [note, ...notes]
-        setNotes(newNote as Note[])
         reset()
         setIsActive(false)
     }
@@ -48,9 +39,10 @@ export default function Form({ editStates }: any) {
             <TextareaAutosize minRows={2} maxRows={4} placeholder='Post It' className='rounded-md sm:p-2 resize-none' {...register('postItNote', { required: true })} />
             {errors.postItNote && <span className='text-red-600'>Este Campo es requerido</span>}
             <div className='gap-2 overflow-hidden flex flex-col'>
-                <Buttons option='create' editStates={setIsActive} />
+                <Buttons option='create' editStates={editStates} />
                 <Buttons option='cancel' editStates={editStates} />
             </div>
         </form>
     )
+
 }

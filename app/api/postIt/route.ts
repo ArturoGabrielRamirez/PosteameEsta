@@ -1,4 +1,4 @@
-import clientPromise from "@/auth/adapter"
+/* import clientPromise from "@/auth/adapter"
 import { NextResponse } from "next/server"
 
 
@@ -17,4 +17,4 @@ export async function POST(request: Request) {
     } catch {
         return NextResponse.json({ error: "algo salio mal" }, { status: 500 })
     }
-}
+} */

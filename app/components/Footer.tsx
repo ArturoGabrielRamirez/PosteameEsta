@@ -7,6 +7,7 @@ import Link from 'next/link'
 
 
 export default function Footer() {
+    
     return (
         <div className='flex justify-around w-full gap-2 pt-4'>
             <div className="bg-transparent">
@@ -24,6 +25,6 @@ export default function Footer() {
                 </Link>
             </div>
         </div>
-
     )
+    
 }
