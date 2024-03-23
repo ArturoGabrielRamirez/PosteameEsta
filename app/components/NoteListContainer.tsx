@@ -8,7 +8,7 @@ import { useNotesContext } from "./NotesProvider"
 import Loading from "../loading"
 
 
-export default function () {
+export default function NoteListContainer() {
 
     const { loading, userEmail } = useNotesContext()
 
@@ -24,5 +24,5 @@ export default function () {
             </div>
         )
     )
-    
+
 }
