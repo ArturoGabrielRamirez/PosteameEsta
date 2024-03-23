@@ -39,7 +39,7 @@ export function NotesProvider({ children }: ProviderProps) {
     const [isActive, setIsActive] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
     const params = new URLSearchParams(searchParam)
-    const { data: session } = useSession()
+    const { data: session } = useSession<boolean>()
     const userEmail = session?.user?.email as string
 
 
