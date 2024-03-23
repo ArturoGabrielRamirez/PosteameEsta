@@ -15,6 +15,7 @@ const NotesContext = createContext<NotesContextType>({
     isActive: false,
     setIsActive: () => { },
     notes: [],
+    session: null,
     userEmail: '',
     limit: '',
     concatenatedPath: '',
@@ -29,7 +30,7 @@ export function NotesProvider({ children }: ProviderProps) {
     const searchParam = useSearchParams()
     const { replace } = useRouter()
     const pageParam = Number(searchParam.get('page') || 1)
-    const limitParam = (searchParam.get('limit') || '10') as string
+    const limitParam = String(searchParam.get('limit') || 10)
     const [notes, setNotes] = useState<Note[]>([])
     const [currentPage, setCurrentPage] = useState<number>(pageParam)
     const [prevPathname, setPrevPathname] = useState<string>('/')
@@ -118,6 +119,7 @@ export function NotesProvider({ children }: ProviderProps) {
             isActive,
             setIsActive,
             notes,
+            session,
             userEmail,
             limit,
             concatenatedPath,

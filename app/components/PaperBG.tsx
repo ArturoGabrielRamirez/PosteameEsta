@@ -8,7 +8,7 @@ export default function PaperBG({ children }: ProviderProps) {
     return (
         <div className="flex justify-center items-center">
             {children}
-            <Image alt="Fondo de papel para logo con gato adentro" src={bgForLogo} objectFit="cover" />
+            <Image alt="Fondo de papel para logo con gato adentro" src={bgForLogo} style={{ objectFit: "cover" }} />
         </div>
     )
 

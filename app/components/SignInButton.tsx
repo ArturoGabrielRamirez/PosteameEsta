@@ -1,12 +1,13 @@
 "use client"
 
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { LogIn, LogOut } from "lucide-react"
 import { useEffect, useState } from 'react'
+import { useNotesContext } from './NotesProvider'
 
 const SigninButton = () => {
-    const { data: session } = useSession()
+    const { session } = useNotesContext()
     const [isLowResolution, setIsLowResolution] = useState(false)
 
     useEffect(() => {

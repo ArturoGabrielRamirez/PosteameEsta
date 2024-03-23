@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="h-screen" lang="es">
+    <html className="h-screen" lang="es" suppressHydrationWarning={true}>
       <body className={`flex ${inter.className} min-h-screen`}>
         <ThemeProvider
           attribute="class"

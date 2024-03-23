@@ -8,7 +8,7 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger,
+    AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 
@@ -25,9 +25,9 @@ export default function ConfirmAlert({ option }: { option: any }) {
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle>Estas seguro que queres eliminar esta Nota?</AlertDialogTitle>
+                    <AlertDialogTitle>¿Estas seguro que queres eliminar esta Nota?</AlertDialogTitle>
                     <AlertDialogDescription>
-                        Esta accion eliminara esta nota y no podra ser recuperada de nuevo de nuestros servidores.
+                        Esta acción eliminara esta nota y no podra ser recuperada de nuevo de nuestros servidores.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>

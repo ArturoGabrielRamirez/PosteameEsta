@@ -1,3 +1,4 @@
+import { Session } from "next-auth"
 import { Note } from "../interfaces/interfaces"
 
 export type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new' | 'create'
@@ -32,6 +33,7 @@ export type NotesContextType = {
     isActive: boolean,
     setIsActive: (boolean: boolean) => void,
     notes: Note[],
+    session: Session | null,
     userEmail: string,
     limit: string,
     concatenatedPath: any,

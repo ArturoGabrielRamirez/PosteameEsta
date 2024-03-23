@@ -12,6 +12,7 @@ import {
     PaginationPrevious
 } from "@/components/ui/pagination"
 import PaperBG from "./PaperBG"
+import { ChevronsLeft  } from 'lucide-react'
 
 
 export default function Paginator() {
@@ -52,7 +53,7 @@ export default function Paginator() {
                                     <PaginationNext href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'next')} className={`${notes?.length === 0 && 'hidden'} bg-emerald-500`} />
                                     :
                                     <PaginationLink href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'redirect')} className="bg-emerald-500">
-                                        ⟲
+                                        <ChevronsLeft  />
                                     </PaginationLink>
                                 }
                             </PaginationItem>
