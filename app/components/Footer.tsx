@@ -7,13 +7,13 @@ import Link from 'next/link'
 
 
 export default function Footer() {
-    
+
     return (
-        <div className='flex justify-around w-full gap-2 pt-4'>
-            <div className="bg-transparent">
+        <div className='flex justify-center w-full gap-2 pt-4 relative'>
+            <p>
                 ©2023-2024 Arturo Gabriel Ramirez
-            </div>
-            <div className='flex gap-4'>
+            </p>
+            <div className='flex justify-items-end gap-4 absolute right-10'>
                 <Link href={'https://www.facebook.com/gabriel.b.soad'}>
                     <Facebook />
                 </Link>
@@ -26,5 +26,5 @@ export default function Footer() {
             </div>
         </div>
     )
-    
+
 }

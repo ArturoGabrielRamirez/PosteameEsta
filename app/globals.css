@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -74,7 +75,33 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .light-gradient {
+    @apply from-light-start via-light-middle to-light-end;
+  }
+
+  .dark-gradient {
+    @apply from-dark-start via-dark-middle to-dark-end;
+  }
+
+  .post-it-light-gradient {
+    @apply from-post-it-start via-post-it-middle to-post-it-end
+  }
+
+  .post-it-dark-gradient {
+    @apply from-dark-post-it-start via-dark-post-it-middle to-dark-post-it-end
+  }
+
+  .bg-pin-light {
+    @apply from-light-pin-star via-light-pin-middle to-light-pin-end
+  }
+
+  .bg-pin-dark {
+    @apply from-dark-pin-star via-dark-pin-middle to-dark-pin-end
+  }
+
 }
+
 
 @keyframes rotate {
   0% {
@@ -103,6 +130,12 @@
 
 }
 
+@media (min-width: 550px) {
+  .customGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .postIt {
   transform-origin: top center;
   transition: transform 0.1s ease-in-out;
@@ -115,4 +148,5 @@
 .granulated {
   background-image: url("/image/texture.jpg");
   background-size: cover;
+  background-repeat: repeat;
 }

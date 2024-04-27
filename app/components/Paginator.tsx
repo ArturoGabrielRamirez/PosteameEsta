@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/pagination"
 import PaperBG from "./PaperBG"
 import { ChevronsLeft  } from 'lucide-react'
+import { AspectRatio } from "@radix-ui/react-aspect-ratio"
 
 
 export default function Paginator() {
@@ -31,9 +32,10 @@ export default function Paginator() {
 
 
     return (
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center overflow-hidden w-full">
+             <AspectRatio ratio={16 / 11}>
             <PaperBG>
-                <div className="flex absolute top-4 w-full p-2">
+                <div className="flex absolute top-0 w-full py-4 px-2">
                     <MiniPushPinGroup />
                 </div>
                 <div className="absolute">
@@ -60,10 +62,11 @@ export default function Paginator() {
                         </PaginationContent>
                     </Pagination>
                 </div>
-                <div className="flex absolute bottom-4 w-full p-2">
+                <div className="flex absolute bottom-1 w-full py-4 px-2">
                     <MiniPushPinGroup />
                 </div>
             </PaperBG>
+            </AspectRatio>
         </div>
     )
 
