@@ -3,6 +3,12 @@ import { Note } from "../interfaces/interfaces"
 
 export type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new' | 'create'
 
+export type Theme = 'light' | 'dark' | 'system'
+
+export type ThemeTypes = {
+    currentTheme: string | null
+}
+
 export type propsHandleClickBoolean = {
     isActive: boolean
     setIsActive: (arg0: boolean) => void
@@ -28,7 +34,7 @@ export type propsButtonsQuery = {
 
 export type NotesContextType = {
     currentPage: number,
-    handlePageChange: ( action: string) => void,
+    handlePageChange: (action: string) => void,
     setNotes: (notes: Note[]) => void,
     isActive: boolean,
     setIsActive: (boolean: boolean) => void,

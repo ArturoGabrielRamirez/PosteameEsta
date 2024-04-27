@@ -26,7 +26,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'view': {
         action: `/note/${propsData.data}`,
-        className: 'bg-cyan-800',
+        className: 'bg-emerald-500',
         classNameText: 'hidden sm:block',
         icon: Eye,
         text: 'Veamos Esta'
@@ -50,7 +50,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'edit': {
         action: () => handleClickBoolean(propsData),
-        className: 'bg-teal-400',
+        className: 'bg-emerald-500 flex items-center',
         classNameText: 'hidden sm:block',
         icon: PenLineIcon,
         text: 'Editame Esta'
@@ -58,7 +58,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'cancel': {
         action: () => handleClickBoolean(propsData),
-        className: 'bg-slate-700',
+        className: 'bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Ban,
         text: 'Canceleame Esta',
@@ -66,7 +66,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'save': {
         action: propsData.handleClickSave,
-        className: 'bg-emerald-500',
+        className: 'bg-emerald-500 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Save,
         text: 'Reposteame Esta'
@@ -74,7 +74,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'new': {
         action: () => handleClickBoolean(propsData),
-        className: 'xl:gap-2 bg-emerald-600 min-h-[100px] min-w-full text-md',
+        className: 'xl:gap-2 bg-emerald-600 min-h-[80px] w-full text-[28px] flex items-center',
         classNameText: 'hidden sm:block',
         icon: PenSquare,
         text: 'Escribime Esta'
@@ -82,7 +82,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'create': {
         action: undefined,
-        className: 'bg-green-400',
+        className: 'bg-green-400 flex items-center',
         classNameText: 'hidden sm:block',
         icon: CheckSquare,
         text: 'Posteame Esta!'

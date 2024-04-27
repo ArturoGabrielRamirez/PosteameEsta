@@ -15,10 +15,10 @@ export default function NoteListContainer() {
     return (
         loading ? <Loading /> : (
             userEmail &&
-            <div className="gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-2 sm:px-4 py-2 sm:py-4 xl:gap-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 h-full grid-rows-[250px_minmax(250px,_1fr)_250px]">
+            <div className="grid px-10 grid-cols-1 customGrid min-[910px]:grid-cols-3 min-[1179px]:grid-cols-4 min-[1280px]:grid-cols-3 2xl:grid-cols-4 gap-3">
                 <CreateNoteClient />
                 <NoteList />
-                <div className="grid grid-cols-subgrid grid-rows-subgrid col-start-4 row-start-3 ">
+                <div className="flex justify-center items-center">
                     <Paginator />
                 </div>
             </div>
