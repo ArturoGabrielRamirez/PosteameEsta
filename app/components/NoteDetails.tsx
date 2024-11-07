@@ -75,7 +75,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                 <Textarea
                                     isReadOnly
                                     id='title'
-                                    defaultValue={title}
+                                    value={title}
                                     className='text-2xl'
                                 />
                             </CardHeader>
@@ -83,7 +83,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                 <Textarea
                                     isReadOnly
                                     id='postItNote'
-                                    defaultValue={postItNote}
+                                    value={postItNote}
                                     className=''
                                     maxRows={12}
                                 />
