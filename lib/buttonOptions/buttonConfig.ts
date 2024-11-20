@@ -1,7 +1,8 @@
 import { PenSquare, Eye, Trash2, PenLineIcon, Ban, Save, CheckSquare } from 'lucide-react'
-import { deleteNote } from '../actions/deleteNote'
-import { getNotes } from '../actions/getNotes'
-import { propsButtonsData, propsButtonsQuery, propsHandleClickBoolean } from '../types/types'
+import { deleteNote } from '@/actions/deleteNote'
+import { getNotes } from '@/actions/getNotes'
+import { propsButtonsData, propsButtonsQuery, propsHandleClickBoolean } from '@/types/types'
+
 
 
 const handleClickDelete = async (propsData: { data: any }, setNotes: any, propsQuery: { userEmail: string, limit: number, currentPage: number }) => {

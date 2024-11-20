@@ -1,5 +1,5 @@
 import { Session } from "next-auth"
-import { Note } from "../interfaces/interfaces"
+import { Note } from "@/interfaces/interfaces"
 
 export type ButtonType = 'view' | 'delete' | 'edit' | 'cancel' | 'save' | 'new' | 'create'
 

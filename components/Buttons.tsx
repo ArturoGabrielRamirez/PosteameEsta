@@ -1,12 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { buttonConfig } from '../buttonOptions/buttonConfig'
+
+import { buttonConfig } from '@/lib/buttonOptions/buttonConfig'
 import React from 'react'
 import ConfirmAlert from './ConfirmAlert'
-import { useNotesContext } from '../components/NotesProvider'
-import { ButtonType } from '../types/types'
+import { useNotesContext } from './NotesProvider'
+import { ButtonType } from '@/types/types'
+import { Button } from './ui/button'
+
+
 
 
 export default function Buttons({ option, data, editStates }: { option: ButtonType, data?: any, editStates?: any }) {

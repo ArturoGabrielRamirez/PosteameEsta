@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 import Buttons from './Buttons'
-import { editNote } from '../actions/editNote'
+import { editNote } from '@/actions/editNote'
 import { redirect } from 'next/navigation'
 import PushPin from './PushPin'
-import { useNotesContext } from './NotesProvider'
 import { useThemeContext } from './CurrentThemeProvider'
 import { Textarea } from "@nextui-org/input"
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
+import { useNotesContext } from './NotesProvider'
 
 
 

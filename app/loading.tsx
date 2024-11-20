@@ -6,8 +6,8 @@ import loader2 from "@/public/image/test-loader2.png"
 import loader3 from "@/public/image/test-loader3.png"
 import loader4 from "@/public/image/test-loader4.png"
 import Image from 'next/image'
-import BGTexture from './components/BGTexture'
-import NailGroup from './components/NailGroup'
+import BGTexture from '@/components/BGTexture'
+import NailGroup from '@/components/NailGroup'
 
 export default function Loading() {
     const [actualImage, setActualImage] = useState(0)

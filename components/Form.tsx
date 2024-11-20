@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { createNewPost } from '@/app/actions/createNewPost'
+import { createNewPost } from '@/actions/createNewPost'
 /* import TextareaAutosize from 'react-textarea-autosize'  */
 import Buttons from './Buttons'
 import { toast } from 'sonner'

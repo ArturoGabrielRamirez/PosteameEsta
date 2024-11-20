@@ -38,7 +38,7 @@ export function NotesProvider({ children }: ProviderProps) {
     const [concatenatedPath, setConcatenatedPath] = useState<string>('/')
     const [isActive, setIsActive] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
-    const params = new URLSearchParams(searchParam)
+    const params = new URLSearchParams(searchParam as any)//Buscar necesidad de ese anu ahi
     const { data: session } = useSession<boolean>()
     const userEmail = session?.user?.email as string
 

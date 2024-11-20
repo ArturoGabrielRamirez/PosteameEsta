@@ -5,7 +5,8 @@ const CreateNoteClient = React.lazy(() => import("./CreateNoteClient"))
 const NoteList = React.lazy(() => import("./NoteList"))
 const Paginator = React.lazy(() => import("./Paginator"))
 import { useNotesContext } from "./NotesProvider"
-import Loading from "../loading"
+import Loading from "@/app/loading"
+
 
 
 export default function NoteListContainer() {

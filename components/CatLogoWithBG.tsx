@@ -3,9 +3,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useNotesContext } from "./NotesProvider"
-import PaperBG from "./PaperBG"
+
 import MiniPushPin from "./MiniPushPin"
 import logo from "@/public/image/logo.png"
+import PaperBG from "./PaperBG"
 
 
 export default function CatLogoWithBG() {

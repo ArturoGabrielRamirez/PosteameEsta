@@ -4,7 +4,7 @@ import {
     Linkedin
 } from 'lucide-react'
 import Link from 'next/link'
-import { version as appVersion } from '../../package.json'
+import { version as appVersion } from '../package.json'
 
 
 export default function Footer() {
