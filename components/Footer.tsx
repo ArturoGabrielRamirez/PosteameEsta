@@ -4,7 +4,7 @@ import {
     Linkedin
 } from 'lucide-react'
 import Link from 'next/link'
-import { version as appVersion } from '../package.json'
+import version from '@/package.json'
 
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
     return (
         <div className='flex w-full gap-2 pt-4 relative'>
             <p>
-                v{appVersion}
+                v{version.version}
             </p>
             <div className='flex justify-center w-full relative'>
                 <p>
