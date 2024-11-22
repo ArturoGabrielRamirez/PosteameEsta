@@ -5,13 +5,13 @@ export default function Title() {
 
     return (
         <div className="mx-10 hidden min-[1145px]:block relative shadow-md shadow-[rgba(0,0,0,0.8)] lg:max-w-[280px] xl:max-w-[300px]">
-        <PaperBG>
+       {/*  <PaperBG>
             <div className="absolute flex flex-col justify-between p-2 w-full h-full">
                 <MiniPushPinGroup />
                 <h1 className="font-bold md:text-4xl min-w-full relative pl-4 text-black">POSTEAME ESTA!</h1>
                 <MiniPushPinGroup />
             </div>
-        </PaperBG>
+        </PaperBG> */}
         </div>
     )
 

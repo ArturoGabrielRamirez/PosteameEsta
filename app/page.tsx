@@ -21,7 +21,7 @@ export default async function Home() {
         :
         <div className="relative flex grow items-center justify-center">
           <PaperBG>
-            <h1 className="sm:text-4xl p-16 max-w-[600px] absolute">Bienvenido a &quot;Posteame Esta&quot;, una aplicación de Post-It. Inicia sesión para disfrutar de una experiencia superior y mayor privacidad en tus notas.</h1>
+            <h1 className="sm:text-xl p-16 max-w-[600px] absolute">Bienvenido a &quot;Posteame Esta&quot;, una aplicación de Post-It. Inicia sesión para disfrutar de una experiencia superior y mayor privacidad en tus notas.</h1>
           </PaperBG>
         </div>
       }

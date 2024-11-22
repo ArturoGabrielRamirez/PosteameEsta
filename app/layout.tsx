@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Open_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import SesionProviders from '@/components/SesionProviders'
 import './globals.css'
 import AppBar from '@/components/AppBar'
@@ -11,7 +11,13 @@ import BackGroundThemeClient from '@/components/BackGroundThemeClient'
 import { CurretThemeProvider } from '@/components/CurrentThemeProvider'
 
 
-const inter = Open_Sans({ subsets: ['latin'] })
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+});
 
 export const metadata: Metadata = {
   title: 'Posteame Esta',
@@ -24,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning={true} className='min-w-[320px]'>
-      <body className={`flex ${inter.className} min-w-[320px]`}>
+    <html lang="es" suppressHydrationWarning={true} className='min-h-dvh'>
+      <body className={`${poppins.className} min-h-dvh`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -34,7 +40,7 @@ export default function RootLayout({
           <CurretThemeProvider>
             <SesionProviders>
               <NotesProvider>
-                <div className='flex flex-col xl:flex-row min-h-dvh sm:w-full'>
+                <div className='flex flex-col xl:flex-row min-h-dvh'>
                   <AppBar />
                   <BackGroundThemeClient>
                     {children}

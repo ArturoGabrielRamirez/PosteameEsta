@@ -42,13 +42,13 @@ export default function NoteDetails({ res }: { res: any }) {
     const editStates = { handleClickSave, isActive, setIsActive }
 
     return (
-        <div className='relative size-full flex rounded-md min-h-dvh max-h-dvh xl:min-h-max xl:max-h-dvh'>
+        <div className='size-full rounded-md'>
             <Card className={`rounded-md shadow-md shadow-black flex flex-col sm:justify-between bg-gradient-to-b ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} size-full`}>
                 <div className='flex justify-between p-2'>
                     <PushPin />
                     <PushPin />
                 </div>
-                <div >
+                <div className='grow'>
                     {isActive ? (
                         <>
                             <CardHeader>
@@ -56,7 +56,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                     id='title'
                                     value={title}
                                     onChange={(e) => eventOnChange(e)}
-                                    className='text-2xl bg-transparent'
+                                    className='text-lg bg-transparent'
                                 />
                             </CardHeader>
                             <CardContent>
@@ -64,7 +64,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                     id='postItNote'
                                     value={postItNote}
                                     onChange={(e) => eventOnChange(e)}
-                                    className='bg-transparent'
+                                    className='bg-transparent text-sm'
                                     maxRows={12}
                                 />
                             </CardContent>
@@ -76,7 +76,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                     isReadOnly
                                     id='title'
                                     value={title}
-                                    className='text-2xl '
+                                    className='text-lg'
                                 />
                             </CardHeader>
                             <CardContent>
@@ -84,7 +84,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                     isReadOnly
                                     id='postItNote'
                                     value={postItNote}
-                                    className=''
+                                    className='text-sm'
                                     maxRows={12}
                                 />
                             </CardContent>

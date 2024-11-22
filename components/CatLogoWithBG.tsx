@@ -21,7 +21,7 @@ export default function CatLogoWithBG() {
 
     return (
         <Link href={userEmail ? `${concatenatedPath}` : '/'}>
-            <div className="rotate-3 z-10 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative max-w-[200px] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[370px] xl:max-w-[350px] xl:-top-4" onClick={handleClick.bind(null, 'redirect')}>
+            <div className="rotate-3 z-10 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative max-w-[200px] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[370px] xl:max-w-[350px] xl:-top-4 min-w-[200px]" onClick={handleClick.bind(null, 'redirect')}>
                 <PaperBG>
                     <div className="absolute top-2">
                         <MiniPushPin />

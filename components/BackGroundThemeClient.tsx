@@ -13,7 +13,7 @@ export default function BackGroundThemeClient({
 
 
     return (
-        <div className={`flex flex-col grow relative items-center justify-center bg-gradient-to-tr xl:bg-gradient-to-br ${currentTheme === 'light' ? 'light-gradient' : 'dark-gradient'} px-4 py-2`}>
+        <div className={`min-h-dvh min-w-[420px] flex flex-col grow relative items-center justify-center bg-gradient-to-tr xl:bg-gradient-to-br ${currentTheme === 'light' ? 'light-gradient' : 'dark-gradient'} px-4 py-2`}>
             {children}
         </div>
     )
