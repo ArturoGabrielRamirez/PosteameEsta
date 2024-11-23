@@ -21,13 +21,13 @@ export default function Loading() {
     }, [imagenes]);
 
     return (
-        <div className='relative flex-1 w-full grid place-content-center'>
+        <div className='relative flex-1 grid place-content-center size-full shadow-md shadow-[rgba(0,0,0,0.8)]'>
             <BGTexture />
-            <div className='absolute w-full'>
+            <div className='absolute grow w-full'>
                 <NailGroup />
             </div>
             <Image className="z-10" alt="loader" priority src={imagenes[actualImage]} width={200} height={200} />
-            <div className='absolute w-full bottom-1'>
+            <div className='absolute bottom-0 w-full'>
                 <NailGroup />
             </div>
         </div>

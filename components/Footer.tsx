@@ -14,11 +14,11 @@ export default function Footer() {
             <p>
                 v{version.version}
             </p>
-            <div className='flex justify-center w-full relative'>
+            <div className='flex items-end sm:items-center sm:justify-center w-full flex-col sm:flex-row sm:relative sm:gap-4 gap-2'>
                 <p>
                     ©2023-2024 Arturo Gabriel Ramirez
                 </p>
-                <div className='flex justify-items-end gap-4 absolute right-10'>
+                <div className='flex gap-4 sm:absolute sm:right-0 '>
                     <Link href={'https://www.facebook.com/gabriel.b.soad'}>
                         <Facebook />
                     </Link>

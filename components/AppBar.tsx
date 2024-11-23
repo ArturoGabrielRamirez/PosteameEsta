@@ -13,7 +13,7 @@ export default function AppBar() {
 
     return (
         <div className={`min-w-[420px] lg:min-w-[400px] flex bg-gradient-to-br xl:bg-gradient-to-bl ${currentTheme === 'light' ? 'light-gradient' : 'dark-gradient'} p-4 xl:p-2`}>
-            <div className="relative size-full xl:flex xl:flex-col shadow-md shadow-[rgba(0,0,0,0.9)]">
+            <div className="relative size-full xl:flex xl:flex-col shadow-md shadow-[rgba(0,0,0,0.8)]">
                 <BGTexture />
                 <NailGroup />
                 <div className="flex items-center justify-around xl:flex-col grow">

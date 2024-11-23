@@ -3,7 +3,6 @@ import PaperBG from "../components/PaperBG"
 import NailGroup from "../components/NailGroup"
 import NoteListContainer from "../components/NoteListContainer"
 import BGTexture from '../components/BGTexture'
-/* import MiniPushPin from "./components/MiniPushPin" */
 
 
 export default async function Home() {

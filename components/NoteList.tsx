@@ -47,15 +47,15 @@ export default function NoteList() {
                     <div className='pt-2'>
                         <PushPin />
                     </div>
-                    <CardHeader className='w-full text-center'>
-                        <CardTitle className='overflow-hidden break-words text-ellipsis whitespace-nowrap'>{note.title}</CardTitle>
+                    <CardHeader className='w-full text-center p-2'>
+                        <CardTitle className='overflow-hidden break-words text-ellipsis whitespace-nowrap text-lg'>{note.title}</CardTitle>
                     </CardHeader>
                     <CardContent className='text-center grow w-full'>
-                        <CardDescription className='overflow-hidden text-ellipsis whitespace-nowrap' >
+                        <CardDescription className='overflow-hidden text-ellipsis whitespace-nowrap text-sm' >
                             {note.postItNote}
                         </CardDescription>
                     </CardContent>
-                    <CardFooter className='gap-16 sm:gap-1'>
+                    <CardFooter className='gap-4 lg:gap-6'>
                         <Buttons option='view' data={note._id} editStates={undefined} />
                         <Buttons option='delete' data={note._id} editStates={undefined} />
                     </CardFooter>

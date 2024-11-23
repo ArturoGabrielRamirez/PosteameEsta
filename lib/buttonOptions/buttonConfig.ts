@@ -27,10 +27,10 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
 
     'view': {
         action: `/note/${propsData.data}`,
-        className: 'bg-emerald-500',
+        className: 'min-w-[97px] p-2 bg-emerald-500 p-2',
         classNameText: 'hidden sm:block',
         icon: Eye,
-        text: 'Veamos Esta'
+        text: 'Ver'
     },
 
     'delete': {
@@ -43,47 +43,47 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
                 currentPage: propsQuery.currentPage,
                 limit: propsQuery.limit
             }),
-        className: 'bg-red-600 flex items-center',
+        className: 'min-w-[97px] p-2 bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Trash2,
-        text: 'Eliminame Esta'
+        text: 'Eliminar'
     },
 
     'edit': {
         action: () => handleClickBoolean(propsData),
-        className: 'bg-emerald-500 flex items-center',
+        className: 'min-w-[97px] p-2 bg-emerald-500 flex items-center',
         classNameText: 'hidden sm:block',
         icon: PenLineIcon,
-        text: 'Editame Esta'
+        text: 'Editar'
     },
 
     'cancel': {
         action: () => handleClickBoolean(propsData),
-        className: 'bg-red-600 flex items-center',
+        className: 'min-w-[97px] p-2 bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Ban,
-        text: 'Canceleame Esta',
+        text: 'Cancelar',
     },
 
     'save': {
         action: propsData.handleClickSave,
-        className: 'bg-emerald-500 flex items-center',
+        className: 'min-w-[97px] p-2 bg-emerald-500 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Save,
-        text: 'Reposteame Esta'
+        text: 'Guardar'
     },
 
     'new': {
         action: () => handleClickBoolean(propsData),
-        className: 'xl:gap-2 bg-emerald-600 min-h-[80px] w-full text-[28px] flex items-center',
+        className: 'min-w-[97px] p-2 xl:gap-2 bg-emerald-600 min-h-[80px] w-full text-[28px] flex items-center',
         classNameText: 'hidden sm:block',
         icon: PenSquare,
-        text: 'Escribime Esta'
+        text: 'Escribir'
     },
 
     'create': {
         action: undefined,
-        className: 'bg-green-400 flex items-center',
+        className: 'min-w-[97px] p-2 bg-green-400 flex items-center',
         classNameText: 'hidden sm:block',
         icon: CheckSquare,
         text: 'Posteame Esta!'
