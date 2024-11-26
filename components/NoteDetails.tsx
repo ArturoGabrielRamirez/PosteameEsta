@@ -42,13 +42,13 @@ export default function NoteDetails({ res }: { res: any }) {
     const editStates = { handleClickSave, isActive, setIsActive }
 
     return (
-        <div className='w-full rounded-md h-screen'>
+        <div className='w-full rounded-md h-full'>
             <Card className={`rounded-md shadow-md shadow-[rgba(0,0,0,0.8)] shadow-black flex flex-col sm:justify-between bg-gradient-to-b ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} size-full`}>
                 <div className='flex justify-between p-2'>
                     <PushPin />
                     <PushPin />
                 </div>
-                <div className='grow'>
+                <div className='flex flex-col grow '>
                     {isActive ? (
                         <>
                             <CardHeader>
@@ -65,7 +65,7 @@ export default function NoteDetails({ res }: { res: any }) {
                                     value={postItNote}
                                     onChange={(e) => eventOnChange(e)}
                                     className='bg-transparent text-sm'
-                                    maxRows={18}
+                                   /*  maxRows={18} */
                                 />
                             </CardContent>
                         </>
@@ -84,8 +84,8 @@ export default function NoteDetails({ res }: { res: any }) {
                                     isReadOnly
                                     id='postItNote'
                                     value={postItNote}
-                                    className='text-sm grow'
-                                    maxRows={18}
+                                    className='text-sm'
+                                   /*  maxRows={18} */
                                 />
                             </CardContent>
                         </>

@@ -18,7 +18,7 @@ export default async function Home() {
       {session ?
         <NoteListContainer />
         :
-        <div className="relative flex grow items-center justify-center">
+        <div className="relative flex grow items-center justify-center px-4">
           <PaperBG>
             <h1 className="sm:text-xl p-16 max-w-[600px] absolute">Bienvenido a &quot;Posteame Esta&quot;, una aplicación de Post-It. Inicia sesión para disfrutar de una experiencia superior y mayor privacidad en tus notas.</h1>
           </PaperBG>

@@ -10,7 +10,7 @@ import version from '@/package.json'
 export default function Footer() {
 
     return (
-        <div className='flex w-full gap-2 pt-4 relative'>
+        <footer className='flex w-full gap-2 pt-4 relative'>
             <p>
                 v{version.version}
             </p>
@@ -30,7 +30,7 @@ export default function Footer() {
                     </Link>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 
 }

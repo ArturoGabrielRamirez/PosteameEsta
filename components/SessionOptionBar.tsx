@@ -13,7 +13,7 @@ export default function SessionOptionBar() {
     const { session } = useNotesContext()
 
     return (
-        <PaperBG>
+        <PaperBG classProps="hidden sm:block">
             <div className="p-2 absolute w-full top-1">
                 <MiniPushPinGroup />
             </div>

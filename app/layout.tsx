@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning={true} className='min-h-dvh'>
-      <body className={`${poppins.className} min-h-dvh`}>
+    <html lang="es" suppressHydrationWarning={true} className=''>
+      <body className={`${poppins.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
