@@ -17,7 +17,7 @@ export default function CreateNoteClient() {
     if (!isActive) {
 
         return (
-            <Card className={`flex h-[250px] relative items-center justify-center rounded-sm text-4xl bg-gradient-to-br ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] border-none`}>
+            <Card className={`flex h-[250px] max-w-[500px] relative items-center justify-center rounded-sm text-4xl bg-gradient-to-br ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] border-none`}>
                 <Buttons option='new' editStates={editStates} />
                 <Image className='absolute pointer-events-none opacity-50' src={bgNewNote} width={200} height={200} alt='imagen de gato enojado en un boton para crear una nota' priority></Image>
             </Card>

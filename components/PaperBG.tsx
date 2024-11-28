@@ -17,6 +17,7 @@ export default function PaperBG({ children, classProps }: ProviderProps & { clas
                 className={currentTheme === 'light' ? '' : ' opacity-20'}
                 src={bgForLogo}
                 style={{ objectFit: "cover" }}
+               
                 priority />
             {children}
         </div>

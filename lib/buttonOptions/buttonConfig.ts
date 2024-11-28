@@ -30,7 +30,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
         className: 'min-w-[97px] p-2 bg-emerald-500 p-2',
         classNameText: 'hidden sm:block',
         icon: Eye,
-        text: 'Ver'
+        text: 'Mirame Esta'
     },
 
     'delete': {
@@ -46,7 +46,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
         className: 'min-w-[97px] p-2 bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Trash2,
-        text: 'Eliminar'
+        text: 'Eliminame Esta'
     },
 
     'edit': {
@@ -54,7 +54,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
         className: 'min-w-[97px] p-2 bg-emerald-500 flex items-center',
         classNameText: 'hidden sm:block',
         icon: PenLineIcon,
-        text: 'Editar'
+        text: 'Editame Esta'
     },
 
     'cancel': {
@@ -62,7 +62,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
         className: 'min-w-[97px] p-2 bg-red-600 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Ban,
-        text: 'Cancelar',
+        text: 'Cancelame Esta',
     },
 
     'save': {
@@ -70,7 +70,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
         className: 'min-w-[97px] p-2 bg-emerald-500 flex items-center',
         classNameText: 'hidden sm:block',
         icon: Save,
-        text: 'Guardar'
+        text: 'Guardame Esta'
     },
 
     'new': {
@@ -78,7 +78,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
         className: 'min-w-[97px] p-2 xl:gap-2 bg-emerald-600 min-h-[80px] w-full text-[28px] flex items-center',
         classNameText: 'hidden sm:block',
         icon: PenSquare,
-        text: 'Escribir'
+        text: 'Escribime Esta'
     },
 
     'create': {

@@ -23,27 +23,9 @@ export default function NoteList() {
 
     return (
         <>
-            {
-                (notes?.length !== 0 ?
-                    <></> :
-                    <div className='relative flex justify-center items-center w-full'>
-                        <AspectRatio ratio={16 / 11}>
-                            <PaperBG>
-                                <div className="flex absolute w-full top-4 px-2">
-                                    <MiniPushPinGroup />
-                                </div>
-                                <span className='absolute text-center'>{'No hay mas notas para mostrar'}</span>
-                                <div className="flex absolute w-full bottom-5 px-2">
-                                    <MiniPushPinGroup />
-                                </div>
-                            </PaperBG>
-                        </AspectRatio>
-                    </div>
-                )
-            }
             {notes?.map((note) =>
             (
-                <Card key={note._id} className={`postIt flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[250px]`}>
+                <Card key={note._id} className={`postIt flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[250px] max-w-[500px] w-full`}>
                     <div className='pt-2'>
                         <PushPin />
                     </div>

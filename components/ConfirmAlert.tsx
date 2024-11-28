@@ -11,6 +11,12 @@ import {
     AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from "@/components/ui/tooltip"
 
 
 export default function ConfirmAlert({ option }: { option: any }) {
@@ -19,8 +25,16 @@ export default function ConfirmAlert({ option }: { option: any }) {
         <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button className={option.className}>
-                    <span>{React.createElement(option.icon)}</span>
-                    <p className={option.classNameText}>{option.text}</p>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <span>{React.createElement(option.icon)}</span>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p className={option.classNameText}>{option.text}</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
