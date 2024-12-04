@@ -2,13 +2,15 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import SesionProviders from '@/components/SesionProviders'
 import './globals.css'
-import AppBar from '@/components/AppBar'
 import { ThemeProvider } from '@/components/theme-provider'
-import Footer from '@/components/Footer'
 import { Toaster } from 'sonner'
 import { NotesProvider } from '@/components/NotesProvider'
-import BackGroundThemeClient from '@/components/BackGroundThemeClient'
 import { CurretThemeProvider } from '@/components/CurrentThemeProvider'
+import BackGroundThemeClient from '@/components/BackGroundThemeClient'
+import Light from '@/components/Light'
+import AppBar from '@/components/AppBar'
+import Footer from '@/components/Footer'
+
 
 
 
@@ -30,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning={true} className=''>
+    <html lang="es-Ar en-Us" suppressHydrationWarning={true}>
       <body className={`${poppins.className}`}>
         <ThemeProvider
           attribute="class"
@@ -40,12 +42,19 @@ export default function RootLayout({
           <CurretThemeProvider>
             <SesionProviders>
               <NotesProvider>
-                <div className='flex flex-col xl:flex-row min-h-dvh'>
-                  <AppBar />
-                  <BackGroundThemeClient>
-                    {children}
-                    <Footer />
-                  </BackGroundThemeClient>
+                <div className=" ">
+                  <div className="flex justify-between items-center absolute z-10 w-full -top-7 h-[40px]">
+                    <Light />
+                    <Light />
+                    <Light />
+                  </div>
+                  <div className='flex flex-col xl:flex-row min-h-dvh w-full'>
+                    <AppBar />
+                    <BackGroundThemeClient>
+                      {children}
+                      <Footer className='sm:hidden' />
+                    </BackGroundThemeClient>
+                  </div>
                 </div>
               </NotesProvider>
             </SesionProviders>

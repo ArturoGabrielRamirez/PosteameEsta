@@ -26,7 +26,7 @@ export default function CatLogoWithBG() {
                     <div className="absolute top-2">
                         <MiniPushPin />
                     </div>
-                    <div className="absolute max-w-[120px] sm:max-w-[200px] md:max-w-[230px] lg:max-w-[250px] xl:max-w-[230px] w-full -bottom-3">
+                    <div className="absolute max-w-[120px] sm:max-w-[200px] md:max-w-[230px] lg:max-w-[250px] xl:max-w-[200px] w-full -bottom-3">
                         <Image alt="Imagen de gato enojado, logo de la pagina" priority src={logo} className="z-10 -rotate-3 absolute bottom-0" />
                     </div>
                 </PaperBG>

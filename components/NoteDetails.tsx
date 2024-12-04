@@ -6,7 +6,7 @@ import { editNote } from '@/actions/editNote'
 import { redirect } from 'next/navigation'
 import PushPin from './PushPin'
 import { useThemeContext } from './CurrentThemeProvider'
-import { Textarea } from "@nextui-org/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { useNotesContext } from './NotesProvider'
 
@@ -43,73 +43,65 @@ export default function NoteDetails({ res }: { res: any }) {
 
     return (
         <div className='w-full rounded-md h-full'>
-            <Card className={`rounded-md shadow-md shadow-[rgba(0,0,0,0.8)] shadow-black flex flex-col sm:justify-between bg-gradient-to-b ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} size-full`}>
+            <div className={`rounded-md shadow-md shadow-[rgba(0,0,0,0.8)] shadow-black flex flex-col sm:justify-between bg-gradient-to-b ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} size-full`}>
                 <div className='flex justify-between p-2'>
                     <PushPin />
                     <PushPin />
                 </div>
-                <div className='flex flex-col grow '>
+                <div className='flex flex-col grow h-dvh overflow-hidden'>
                     {isActive ? (
                         <>
-                            <CardHeader>
-                                <Textarea
-                                    id='title'
-                                    value={title}
-                                    onChange={(e) => eventOnChange(e)}
-                                    className='text-lg bg-transparent'
-                                />
-                            </CardHeader>
-                            <CardContent>
-                                <Textarea
-                                    id='postItNote'
-                                    value={postItNote}
-                                    onChange={(e) => eventOnChange(e)}
-                                    className='bg-transparent text-sm'
-                                   /*  maxRows={18} */
-                                />
-                            </CardContent>
+                            <Textarea
+                                id='title'
+                                value={title}
+                                onChange={(e) => eventOnChange(e)}
+                                className='bg-transparent border-none resize-none border-none px-10 text-center'
+                            />
+                            <Textarea
+                                id='postItNote'
+                                value={postItNote}
+                                onChange={(e) => eventOnChange(e)}
+                                className='text-sm p-2 shadcn-textarea resize-none bg-transparent border-none md:px-20 2xl:px-52 px-8 h-fit py-2'
+                                rows={50}
+                            />
                         </>
                     ) : (
                         <>
-                            <CardHeader>
-                                <Textarea
-                                    isReadOnly
-                                    id='title'
-                                    value={title}
-                                    className='text-lg'
-                                />
-                            </CardHeader>
-                            <CardContent>
-                                <Textarea
-                                    isReadOnly
-                                    id='postItNote'
-                                    value={postItNote}
-                                    className='text-sm'
-                                   /*  maxRows={18} */
-                                />
-                            </CardContent>
+                            <Textarea
+                                disabled
+                                id='title'
+                                value={title}
+                                className='bg-transparent border-none resize-none border-none px-10 text-center'
+                            />
+                            <Textarea
+                                disabled
+                                id='postItNote'
+                                value={postItNote}
+                                rows={50}
+                                className='text-sm p-2 shadcn-textarea resize-none bg-transparent border-none md:px-20 2xl:px-52 px-8 h-fit py-2'
+                            />
                         </>
                     )
                     }
                 </div>
                 <div>
                     {!isActive ? (
-                        <CardFooter className='flex justify-around p-1 sm:p-4'>
+                        <div className='flex justify-around p-1 sm:p-4'>
                             <Buttons option='edit' editStates={editStates} />
                             <Buttons option='delete' data={notes._id} />
-                        </CardFooter>
+                        </div>
                     ) : (
-                        <CardFooter className='flex justify-around p-1 sm:p-4'>
+                        <div className='flex justify-around p-1 sm:p-4'>
                             <Buttons option='cancel' editStates={editStates} />
                             <Buttons option='save' editStates={editStates} />
-                        </CardFooter>
+                        </div>
                     )}
                     <div className='flex justify-between p-2'>
                         <PushPin />
                         <PushPin />
                     </div>
                 </div>
-            </Card>
+            </div>
         </div>
     )
 
