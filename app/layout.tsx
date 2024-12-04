@@ -36,25 +36,23 @@ export default function RootLayout({
       <body className={`${poppins.className}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange>
           <CurretThemeProvider>
             <SesionProviders>
               <NotesProvider>
-                <div className=" ">
-                  <div className="flex justify-between items-center absolute z-10 w-full -top-7 h-[40px]">
-                    <Light />
-                    <Light />
-                    <Light />
-                  </div>
-                  <div className='flex flex-col xl:flex-row min-h-dvh w-full'>
-                    <AppBar />
-                    <BackGroundThemeClient>
-                      {children}
-                      <Footer className='sm:hidden' />
-                    </BackGroundThemeClient>
-                  </div>
+                <div className="flex justify-between items-center absolute z-10 w-full -top-7 h-[40px]">
+                  <Light />
+                  <Light />
+                  <Light />
+                </div>
+                <div className='flex flex-col xl:flex-row min-h-dvh w-full'>
+                  <AppBar />
+                  <BackGroundThemeClient>
+                    {children}
+                    <Footer className='sm:hidden' />
+                  </BackGroundThemeClient>
                 </div>
               </NotesProvider>
             </SesionProviders>
