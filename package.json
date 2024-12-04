@@ -1,7 +1,7 @@
 {
   "name": "posteame-esta",
   "version": "0.10.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
