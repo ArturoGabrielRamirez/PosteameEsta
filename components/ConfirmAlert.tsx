@@ -14,34 +14,38 @@ import { Button } from '@/components/ui/button'
 import {
     Tooltip,
     TooltipContent,
-    TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip"
+import { TooltipProvider } from '@radix-ui/react-tooltip'
 
 
-export default function ConfirmAlert({ option }: { option: any }) {
+export default function ConfirmAlert({ className, option }: { className?: string, option: any }) {
 
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button className={option.className}>
+                <span>
                     <TooltipProvider>
                         <Tooltip>
-                            <TooltipTrigger>
-                                <span>{React.createElement(option.icon)}</span>
+                            <TooltipTrigger asChild>
+                                <span>
+                                    <Button className={`${option.className} ${className}`}>
+                                        <p>{React.createElement(option.icon)}</p>
+                                        <TooltipContent>
+                                            <p className={option.classNameText}>{option.text}</p>
+                                        </TooltipContent>
+                                    </Button>
+                                </span>
                             </TooltipTrigger>
-                            <TooltipContent>
-                                <p className={option.classNameText}>{option.text}</p>
-                            </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                </Button>
+                </span>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>¿Estas seguro que queres eliminar esta Nota?</AlertDialogTitle>
                     <AlertDialogDescription>
-                        Esta acción eliminara esta nota y no podra ser recuperada de nuevo de nuestros servidores.
+                        Esta acción eliminara esta nota y no podra ser recuperada de nuevo de nuestra base de datos.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>

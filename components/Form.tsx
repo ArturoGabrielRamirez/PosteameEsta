@@ -2,7 +2,6 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { createNewPost } from '@/actions/createNewPost'
-/* import TextareaAutosize from 'react-textarea-autosize'  */
 import Buttons from './Buttons'
 import { toast } from 'sonner'
 import { useNotesContext } from './NotesProvider'
@@ -34,16 +33,18 @@ export default function Form({ editStates }: any) {
     }
 
     return (
-        <form className='flex flex-col justify-center w-full md:gap-2 sm:gap-3 sm:p-2' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col justify-center w-full overflow-hidden gap-1' onSubmit={handleSubmit(onSubmit)}>
             <Textarea
                 maxLength={40}
-                placeholder='Title'
-                className='rounded-md sm:p-2 resize-none'
+                placeholder='Titulo...'
+                className='rounded-md sm:p-2 resize-none h-fit bg-transparent border-none focus-visible:outline-none focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0'
                 {...register('title', { required: true })} />
             {errors.title && <span className='text-red-600'>Este Campo es requerido</span>}
-            <Textarea placeholder='Post It' className='rounded-md sm:p-2 resize-none' {...register('postItNote', { required: true })} />
+            <Textarea
+                placeholder='Post It...'
+                className='rounded-md p-2 resize-none bg-transparent border-none focus-visible:outline-none focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0' {...register('postItNote', { required: true })} />
             {errors.postItNote && <span className='text-red-600'>Este Campo es requerido</span>}
-            <div className='gap-2 overflow-hidden flex flex-col'>
+            <div className='flex justify-center items-center gap-4 sm:gap-6 overflow-hidden flex-row'>
                 <Buttons option='create' editStates={editStates} />
                 <Buttons option='cancel' editStates={editStates} />
             </div>

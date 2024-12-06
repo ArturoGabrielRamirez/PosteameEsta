@@ -46,3 +46,18 @@ export type NotesContextType = {
     savePrevPath: () => void,
     loading: boolean
 }
+
+type ButtonOption = {
+    action: (() => void) | string | undefined;
+    className: string;
+    classNameText: string;
+    icon: React.ElementType;
+    text: string;
+};
+
+export type TooltipButtonProps = {
+    option: ButtonOption;
+    classProps?: string;
+    children?: React.ReactNode;
+    savePrevPath: () => void;
+};

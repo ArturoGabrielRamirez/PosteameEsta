@@ -7,21 +7,32 @@ import React from 'react'
 import ConfirmAlert from './ConfirmAlert'
 import { useNotesContext } from './NotesProvider'
 import { ButtonType } from '@/types/types'
-import { Button } from './ui/button'
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import TooltipButton from './TooltipButton'
 
+export default function Buttons({
+    classProps,
+    option,
+    data,
+    editStates }
+    : {
+        classProps?: string,
+        option: ButtonType,
+        data?: any,
+        editStates?: any
+    }) {
 
-
-
-
-export default function Buttons({ option, data, editStates }: { option: ButtonType, data?: any, editStates?: any }) {
-
-    const { setNotes, userEmail, limit, currentPage, savePrevPath } = useNotesContext()
+    const {
+        setNotes,
+        userEmail,
+        limit,
+        currentPage,
+        savePrevPath } = useNotesContext()
     const { handleClickSave, isActive, setIsActive } = editStates || {}
     const propsData = { data, handleClickSave, isActive, setIsActive }
     const propsQuery = { userEmail, limit, currentPage }
@@ -31,66 +42,38 @@ export default function Buttons({ option, data, editStates }: { option: ButtonTy
         <>
             {
                 <TooltipProvider>
-                    {
-                        option === 'view' ?
-
-                            <Tooltip>
-                                <Button
-                                    asChild
-                                    option={selectedOption}
-                                    className={selectedOption.className}
-                                    onClick={savePrevPath}>
-                                    <Link href={selectedOption.action}>
-                                        <TooltipTrigger>
-                                            <span>{React.createElement(selectedOption.icon)}</span>
-                                        </TooltipTrigger>
-
-                                        <TooltipContent>
-                                            <p className={selectedOption.classNameText}>{selectedOption.text}</p>
-                                        </TooltipContent>
-                                    </Link>
-                                </Button>
-                            </Tooltip>
-                            :
-                            option === 'create' ?
-                                <Tooltip>
-                                    <Button
-                                        option={selectedOption}
-                                        className={selectedOption.className}>
-                                        <TooltipTrigger>
-                                            <span>{React.createElement(selectedOption.icon)}</span>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p className={selectedOption.classNameText}>{selectedOption.text}</p>
-                                        </TooltipContent>
-                                    </Button>
-                                </Tooltip>
-                                :
-                                (option === 'delete' ?
-                                    <Tooltip>
-                                        <ConfirmAlert
-                                            option={selectedOption}
-                                        />
-                                    </Tooltip>
-                                    :
-                                    <Tooltip>
-                                        <Button option={selectedOption}
-                                            onClick={selectedOption.action}
-                                            className={selectedOption.className}
-                                        >
-                                            <TooltipTrigger>
-                                                <span>{React.createElement(selectedOption.icon)}</span>
-                                            </TooltipTrigger>
-                                            <TooltipContent>
-                                                <p className={selectedOption.classNameText}>{selectedOption.text}</p>
-                                            </TooltipContent>
-                                        </Button>
-                                    </Tooltip>
+                    <Tooltip>
+                        <TooltipTrigger
+                            className={`relative ${option === 'new' && 'w-full'}`}
+                            asChild>
+                            <span>
+                                {option === 'delete' ? (
+                                    <ConfirmAlert option={selectedOption} />
                                 )
-
-
-
-                    }
+                                    : (<TooltipButton
+                                        option={selectedOption}
+                                        classProps={classProps}
+                                        savePrevPath={savePrevPath}>
+                                        {option === 'view' && (
+                                            <Link
+                                                href={selectedOption.action}
+                                                className='size-full absolute' />)}
+                                        {option === 'new' && (
+                                            <span className="text-[24px]">
+                                                {selectedOption.text}
+                                            </span>
+                                        )}
+                                        <TooltipContent>
+                                            <p className={selectedOption.classNameText}>
+                                                {selectedOption.text}
+                                            </p>
+                                        </TooltipContent>
+                                    </TooltipButton>
+                                    )
+                                }
+                            </span>
+                        </TooltipTrigger>
+                    </Tooltip>
                 </TooltipProvider>
             }
         </>
