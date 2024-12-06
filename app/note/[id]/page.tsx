@@ -3,7 +3,8 @@ import NoteDetails from "@/components/NoteDetails"
 import { getServerSession } from "next-auth"
 
 
-export default async function NoteDetailsContainer({ params }: { params: { id: any } }) {
+export default async function NoteDetailsContainer(props: { params: Promise<{ id: any }> }) {
+    const params = await props.params;
     const session = await getServerSession()
     const userEmail = session?.user?.email as string
     const { id } = params
@@ -12,5 +13,4 @@ export default async function NoteDetailsContainer({ params }: { params: { id: a
     return (
         <NoteDetails res={res} />
     )
-
 }
