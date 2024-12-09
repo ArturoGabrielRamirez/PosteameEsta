@@ -32,7 +32,7 @@ export default function Paginator() {
 
 
     return (
-        <div className={`relative flex justify-center items-center overflow-hidden w-full max-h-[400px] max-w-[500px] `}>
+        <div className={`relative flex justify-center items-center overflow-hidden w-full max-w-[500px] `}>
             <AspectRatio ratio={16 / 11}>
                 <PaperBG>
                     <div className="flex absolute top-0 w-full py-4 px-2">
@@ -43,19 +43,32 @@ export default function Paginator() {
                         <Pagination>
                             <PaginationContent>
                                 <PaginationItem>
-                                    <PaginationPrevious href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'previous')} className={`${currentPage === 1 && 'hidden'} bg-emerald-500`} />
+                                    <PaginationPrevious
+                                        href={`${concatenatedPath}`}
+                                        onClick={handleClick.bind(null, 'previous')}
+                                        className={`${currentPage === 1 && 'hidden'} bg-emerald-500`} />
                                 </PaginationItem>
                                 <PaginationItem>
-                                    <PaginationLink href={`${concatenatedPath}`} className="bg-emerald-500">{currentPage}</PaginationLink>
+                                    <PaginationLink
+                                        href={`${concatenatedPath}`}
+                                        className="bg-emerald-500">
+                                        {currentPage}
+                                    </PaginationLink>
                                 </PaginationItem>
                                 <PaginationItem>
                                     <PaginationEllipsis className="bg-emerald-500 rounded-md" />
                                 </PaginationItem>
                                 <PaginationItem>
                                     {notes?.length !== 0 ?
-                                        <PaginationNext href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'next')} className={`${notes?.length === 0 && 'hidden'} bg-emerald-500`} />
+                                        <PaginationNext
+                                            href={`${concatenatedPath}`}
+                                            onClick={handleClick.bind(null, 'next')}
+                                            className={`${notes?.length === 0 && 'hidden'} bg-emerald-500`} />
                                         :
-                                        <PaginationLink href={`${concatenatedPath}`} onClick={handleClick.bind(null, 'redirect')} className="bg-emerald-500">
+                                        <PaginationLink
+                                            href={`${concatenatedPath}`}
+                                            onClick={handleClick.bind(null, 'redirect')}
+                                            className="bg-emerald-500">
                                             <ChevronsLeft />
                                         </PaginationLink>
                                     }

@@ -6,14 +6,14 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { useThemeContext } from "./CurrentThemeProvider"
 
-
-
 export default function ModeToggle() {
   const { setTheme } = useTheme()
   const { currentTheme } = useThemeContext()
 
   return (
-    <Button className="bg-transparent text-primary hover:text-primary-foreground" onClick={() => setTheme(currentTheme === 'light' ? 'dark' : 'light')}>
+    <Button 
+    className="bg-transparent text-primary hover:text-primary-foreground" 
+    onClick={() => setTheme(currentTheme === 'light' ? 'dark' : 'light')}>
       <SunMoon className={`size-[23px] ${currentTheme === 'dark' ? 'block' : 'hidden'}`} />
       <Sun className={`size-[23px] ${currentTheme === 'light' ? 'block' : 'hidden'}`} />
     </Button>

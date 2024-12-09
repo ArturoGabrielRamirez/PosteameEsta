@@ -35,7 +35,10 @@ export default function CreateNoteClient() {
     } else {
 
         return (
-            <Card className={`flex h-[250px] z-10 rounded-sm bg-gradient-to-br ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'} shadow-md shadow-[rgba(0,0,0,0.8)] border-none`}>
+            <Card className={`flex h-[250px] z-10 rounded-sm bg-gradient-to-br 
+            ${currentTheme === 'light' 
+            ? 'post-it-light-gradient' 
+            : 'post-it-dark-gradient'} shadow-md shadow-[rgba(0,0,0,0.8)] border-none`}>
                 <Form editStates={editStates} />
             </Card>
         )

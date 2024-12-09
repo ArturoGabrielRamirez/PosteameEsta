@@ -5,8 +5,6 @@ import { Theme, ThemeTypes } from '../types/types'
 import { ProviderProps } from '../interfaces/interfaces'
 import { useTheme } from 'next-themes'
 
-
-
 const ThemeContext = createContext<ThemeTypes>({
     currentTheme: ''
 })

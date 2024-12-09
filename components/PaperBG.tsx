@@ -11,7 +11,9 @@ export default function PaperBG({ children, classProps }: ProviderProps & { clas
 
 
     return (
-        <div className={`flex sm:flex justify-center items-center ${currentTheme === 'light' ? '' : 'backdrop-blur-3xl backdrop-hue-rotate-180 backdrop-brightness-50'} ${classProps}`}>
+        <div className={`flex sm:flex justify-center items-center ${currentTheme === 'light' 
+        ? '' 
+        : 'backdrop-blur-3xl backdrop-hue-rotate-180 backdrop-brightness-50'} ${classProps}`}>
             <Image
                 alt="Fondo de papel"
                 className={currentTheme === 'light' ? '' : ' opacity-20'}

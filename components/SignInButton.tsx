@@ -9,7 +9,9 @@ const SigninButton = ({ className }: { className?: string }) => {
     const { session } = useNotesContext()
   
     return (
-        <Button className={`bg-transparent text-primary hover:text-primary-foreground ${className}`} onClick={() => session && session.user ? signOut({ redirect: true, callbackUrl: '/' }) : signIn()}>
+        <Button 
+        className={`bg-transparent text-primary hover:text-primary-foreground ${className}`} 
+        onClick={() => session && session.user ? signOut({ redirect: true, callbackUrl: '/' }) : signIn()}>
             <LogIn className={`size-[23px] ${session && session.user ? "hidden" : "block"}`} />
             <LogOut className={`size-[23px] ${session && session.user ? "block" : "hidden"}`} />
         </Button>

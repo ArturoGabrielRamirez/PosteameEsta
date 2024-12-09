@@ -5,9 +5,6 @@ import NoteListContainer from "../components/NoteListContainer"
 import BGTexture from '../components/BGTexture'
 import SigninButton from "@/components/SignInButton"
 
-
-
-
 export default async function Home() {
 
   const session = await getServerSession()
@@ -15,7 +12,7 @@ export default async function Home() {
   await new Promise((res) => { setTimeout(() => { res(null) }, 2000) })
 
   return (
-    <main className="relative flex flex-col w-full grow bg-gradient-to-br justify-between shadow-md shadow-[rgba(0,0,0,0.8)]">
+    <main className="relative md:h-full flex flex-col w-full grow bg-gradient-to-br justify-between shadow-md shadow-[rgba(0,0,0,0.8)]">
       <BGTexture />
       <NailGroup />
       {session ?

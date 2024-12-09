@@ -37,12 +37,15 @@ export default function Form({ editStates }: any) {
             <Textarea
                 maxLength={40}
                 placeholder='Titulo...'
-                className='rounded-md sm:p-2 resize-none h-fit bg-transparent border-none focus-visible:outline-none focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0'
+                className='rounded-md sm:p-2 resize-none h-fit bg-transparent border-none focus-visible:outline-none 
+                focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0'
                 {...register('title', { required: true })} />
             {errors.title && <span className='text-red-600'>Este Campo es requerido</span>}
             <Textarea
                 placeholder='Post It...'
-                className='rounded-md p-2 resize-none bg-transparent border-none focus-visible:outline-none focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0' {...register('postItNote', { required: true })} />
+                className='rounded-md p-2 resize-none bg-transparent border-none focus-visible:outline-none 
+                focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0'
+                {...register('postItNote', { required: true })} />
             {errors.postItNote && <span className='text-red-600'>Este Campo es requerido</span>}
             <div className='flex justify-center items-center gap-4 sm:gap-6 overflow-hidden flex-row'>
                 <Buttons option='create' editStates={editStates} />

@@ -11,9 +11,6 @@ import Light from '@/components/Light'
 import AppBar from '@/components/AppBar'
 import Footer from '@/components/Footer'
 
-
-
-
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
@@ -33,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es-Ar en-Us" suppressHydrationWarning={true}>
-      <body className={`${poppins.className}`}>
+      <body className={`${poppins.className} min-w-[320px]`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -42,12 +39,12 @@ export default function RootLayout({
           <CurretThemeProvider>
             <SesionProviders>
               <NotesProvider>
-                <div className="flex justify-between items-center absolute z-10 w-full -top-7 h-[40px]">
+                <div className="flex justify-between items-center absolute z-10 w-full -top-7">
                   <Light />
                   <Light />
                   <Light />
                 </div>
-                <div className='flex flex-col xl:flex-row min-h-dvh w-full'>
+                <div className='flex flex-col xl:flex-row w-full'>
                   <AppBar />
                   <BackGroundThemeClient>
                     {children}
