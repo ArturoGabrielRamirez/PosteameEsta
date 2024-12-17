@@ -55,14 +55,16 @@ export default function NoteDetails({ res }: { res: any }) {
                                 id='title'
                                 value={title}
                                 onChange={(e) => eventOnChange(e)}
-                                className='bg-transparent border-none resize-none border-none px-10 text-center'
+                                className='bg-transparent border-none focus-visible:outline-none 
+                focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0 resize-none px-10 text-center'
                             />
                             <Textarea
                                 id='postItNote'
                                 value={postItNote}
                                 onChange={(e) => eventOnChange(e)}
-                                className='text-sm p-2 shadcn-textarea resize-none bg-transparent border-none 
-                                md:px-20 2xl:px-52 px-8 h-fit py-2'
+                                className='text-sm p-2 shadcn-textarea resize-none bg-transparent  
+                                md:px-20 2xl:px-52 px-8 h-fit py-2 border-none focus-visible:outline-none 
+                focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0'
                                 rows={50}
                             />
                         </>
@@ -72,14 +74,16 @@ export default function NoteDetails({ res }: { res: any }) {
                                 disabled
                                 id='title'
                                 value={title}
-                                className='bg-transparent border-none resize-none border-none px-10 text-center'
+                                className='bg-transparent resize-none border-none focus-visible:outline-none 
+                focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0 px-10 text-center'
                             />
                             <Textarea
                                 disabled
                                 id='postItNote'
                                 value={postItNote}
                                 rows={50}
-                                className='text-sm p-2 shadcn-textarea resize-none bg-transparent border-none 
+                                className='text-sm p-2 shadcn-textarea resize-none bg-transparent border-none focus-visible:outline-none 
+                focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0 
                                 md:px-20 2xl:px-52 px-8 h-fit py-2'
                             />
                         </>

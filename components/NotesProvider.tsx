@@ -78,8 +78,7 @@ export function NotesProvider({ children }: ProviderProps) {
                 newValue = currentPage > 1 ? currentPage - 1 : 1
                 break
             case 'next':
-                newValue =
-                    currentPage + 1
+                newValue = currentPage + 1
                 break
             case 'redirect':
                 newValue = currentPage > 1 ? currentPage / currentPage : 1

@@ -19,11 +19,11 @@ export default function NoteList() {
 
     return (
         <>
-            {notes?.map((note) =>
+            {notes?.map((note, index) =>
             (
                 <Card
                     key={note._id}
-                    className={`postIt flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br 
+                    className={`postIt group flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br 
                 ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'}
                 shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[250px] max-w-[500px] w-full`}>
                     <div className='pt-2'>
@@ -31,16 +31,16 @@ export default function NoteList() {
                     </div>
                     <CardHeader className='w-full text-center p-2'>
                         <CardTitle
-                            className='overflow-hidden break-words text-ellipsis whitespace-nowrap text-lg'>
+                            className='overflow-hidden truncate break-words text-lg'>
                             {note.title}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className='text-center grow w-full'>
-                        <CardDescription className='overflow-hidden text-ellipsis whitespace-nowrap text-sm' >
+                        <CardDescription className='overflow-hidden truncate break-words text-sm' >
                             {note.postItNote}
                         </CardDescription>
                     </CardContent>
-                    <CardFooter className='gap-4 lg:gap-6'>
+                    <CardFooter className='gap-4 lg:gap-6 hidden group-hover:flex'>
                         <Buttons option='view' data={note._id} editStates={undefined} />
                         <Buttons option='delete' data={note._id} editStates={undefined} />
                     </CardFooter>

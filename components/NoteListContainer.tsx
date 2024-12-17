@@ -16,7 +16,7 @@ export default function NoteListContainer() {
     return (
         loading ? <Loading /> : (
             userEmail &&
-            <div className={` ${notes?.length !== 0 ? 'grid px-10 grid-cols-1 customGrid min-[910px]:grid-cols-3 min-[1179px]:grid-cols-4 min-[1280px]:grid-cols-3 2xl:grid-cols-4 gap-3' : ''}`}>
+            <div className={` ${notes?.length !== 0 ? 'grid px-10 grid-cols-1 customGrid min-[910px]:grid-cols-3 min-[1179px]:grid-cols-4 min-[1280px]:grid-cols-3 2xl:grid-cols-4 gap-4' : ''}`}>
                 {notes?.length !== 0 && <CreateNoteClient />}
                 <NoteList />
                 <div className={`${notes?.length !== 0 ? 'md:col-start-2 min-[550px]:col-start-2 min-[910px]:col-start-3 min-[1179px]:col-start-4 min-[1280px]:col-start-3 min-[1280px]:row-start-4 2xl:col-start-4 2xl:row-start-3' : 'flex justify-center items-center'}`}>

@@ -18,7 +18,7 @@ export default function AppBar() {
             <div className="relative size-full min-sm:justify-center xl:flex xl:flex-col shadow-md shadow-[rgba(0,0,0,0.8)]">
                 <BGTexture />
                 <NailGroup />
-                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-around xl:flex-col grow gap-2">
+                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-around xl:flex-col grow gap-2 xl:gap-64">
                     <CatLogoWithBG />
                     <div className="relative min-w-[190px] max-w-[190px] sm:max-w-[300px] md:max-w-[360px] xl:max-w-[350px] 
                     shadow-md shadow-[rgba(0,0,0,0.8)]">
