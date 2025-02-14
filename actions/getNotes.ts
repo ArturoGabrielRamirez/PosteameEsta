@@ -4,17 +4,17 @@ import clientPromise from "@/auth/adapter"
 import { ObjectId } from "mongodb"
 
 
-export const getNotes = async (id: any, userEmail: string, currentPage?: any, limit?: any) => {
+export const getNotes = async (id: any, userEmail: string, currentPage?: any, limit?: number | string) => {
 
     const client = await clientPromise
     const db = client.db()
     let notes
-    let limitToNumber = parseInt(limit)
+    let limitToNumber = limit && Number(limit) > 0 ? Number(limit) : 10
 
     if (id !== undefined) {
 
         const note = await db.collection('notes').findOne({
-            _id: new ObjectId(id)
+            _id: ObjectId.createFromTime(id),
 
         })
 
@@ -27,16 +27,33 @@ export const getNotes = async (id: any, userEmail: string, currentPage?: any, li
         notes = [note]
     } else {
 
-        const notesCursor = db.collection('notes').find({ userEmail: userEmail }).sort({ "createdAt": -1 }).skip((currentPage - 1) * limitToNumber).limit(limitToNumber)
+        const notesCursor = db.collection('notes')
+            .find({ userEmail: userEmail })
+            .sort({ "createdAt": -1 })
+            .skip((currentPage - 1) * limitToNumber)
+            .limit(limitToNumber)
 
         notes = await notesCursor.toArray()
 
-        if (!notes || notes.length === 0) {
+        if (!notes || notes.length === 0 || limitToNumber === 0) {
 
             return ({ error: 'Notas no encontradas', status: 404, notes: [] })
 
         }
     }
+
+    /*   const nextPageCount = await db.collection('notes')
+      .find({ userEmail: userEmail })
+      .skip((currentPage + 1) * limitToNumber) 
+      .limit(1) 
+      .toArray();
+  
+      const isLastPage = nextPageCount.length > 0 */
+
+    const totalNotes = await db.collection('notes').countDocuments({ userEmail: userEmail });
+    const isLastPage = totalNotes <= ((Number(currentPage) || 1) * limitToNumber );
+
+    console.log(totalNotes, isLastPage)
 
     const serializableNotes = notes.map(note => ({
         ...note,
@@ -44,6 +61,6 @@ export const getNotes = async (id: any, userEmail: string, currentPage?: any, li
     }));
 
 
-    return ({ error: "", status: 200, notes: serializableNotes })
-    
+    return ({ error: "", status: 200, notes: serializableNotes, isLastPage })
+
 }

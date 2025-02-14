@@ -19,13 +19,13 @@ export default function NoteList() {
 
     return (
         <>
-            {notes?.map((note, index) =>
+            {notes?.map((note) =>
             (
                 <Card
                     key={note._id}
                     className={`postIt group flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br 
                 ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'}
-                shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[250px] max-w-[500px] w-full`}>
+                shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[calc(30vh-30px)] w-full`}>
                     <div className='pt-2'>
                         <PushPin />
                     </div>

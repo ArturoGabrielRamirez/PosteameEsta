@@ -1,29 +1,49 @@
 'use client'
 
 import React from "react"
-const CreateNoteClient = React.lazy(() => import("./CreateNoteClient"))
-const NoteList = React.lazy(() => import("./NoteList"))
-const Paginator = React.lazy(() => import("./Paginator"))
+import { lazy } from "react"
+const CreateNoteClient = lazy(() => import("./CreateNoteClient"))
+const NoteList = lazy(() => import("./NoteList"))
+const Paginator = lazy(() => import("./Paginator"))
 import { useNotesContext } from "./NotesProvider"
-import Loading from "@/app/loading"
-
+import RenderSuspense from "./RenderSuspense"
+import SkeletonArray from "./SkeletonArray"
+import SkeletonTemplate from "./SkeletonTemplate"
 
 
 export default function NoteListContainer() {
+    const { limit, userEmail, notes, isLastPage, loading, isEmptyPage } = useNotesContext()
 
-    const { loading, userEmail, notes } = useNotesContext()
+    const skeletonCondition = notes?.length > 10 || limit === '0' || Number(limit) > 10
 
     return (
-        loading ? <Loading /> : (
-            userEmail &&
-            <div className={` ${notes?.length !== 0 ? 'grid px-10 grid-cols-1 customGrid min-[910px]:grid-cols-3 min-[1179px]:grid-cols-4 min-[1280px]:grid-cols-3 2xl:grid-cols-4 gap-4' : ''}`}>
-                {notes?.length !== 0 && <CreateNoteClient />}
-                <NoteList />
-                <div className={`${notes?.length !== 0 ? 'md:col-start-2 min-[550px]:col-start-2 min-[910px]:col-start-3 min-[1179px]:col-start-4 min-[1280px]:col-start-3 min-[1280px]:row-start-4 2xl:col-start-4 2xl:row-start-3' : 'flex justify-center items-center'}`}>
-                    <Paginator />
+        userEmail && (
+            isEmptyPage ? (
+
+                <div className="grid px-10 customGrid min-[910px]:grid-cols-3 min-[1179px]:grid-cols-4 min-[1280px]:grid-cols-3 2xl:grid-cols-4 gap-4">
+                    <div className="">
+                        <RenderSuspense component={CreateNoteClient} fallback={<SkeletonTemplate isLastPage={isLastPage} loading={loading} notes={notes} />} />
+                    </div>
+                    <div className="">
+                        <RenderSuspense component={Paginator} fallback={<SkeletonArray notes={notes}/>} />
+                    </div>
+
                 </div>
-            </div>
+            ) : (
+                <div className={`grid px-10 customGrid min-[910px]:grid-cols-3 min-[1179px]:grid-cols-4 min-[1280px]:grid-cols-3 2xl:grid-cols-4 gap-4`}
+                    style={{
+                        maxHeight: skeletonCondition ? 'calc(100vh - 100px)' : '100%',
+                        overflowY: skeletonCondition ? 'scroll' : 'visible'
+                    }}>
+                    <div className="z-10">
+                        <RenderSuspense component={CreateNoteClient} fallback={<SkeletonTemplate isLastPage={isLastPage} loading={loading} notes={notes} />} />
+                    </div>
+                    <RenderSuspense component={NoteList} fallback={<SkeletonArray notes={notes}/>} />
+                    <div className="">
+                        <RenderSuspense component={Paginator} fallback={<SkeletonTemplate isLastPage={isLastPage} loading={loading} notes={notes} />} />
+                    </div>
+                </div>
+            )
         )
     )
-
 }

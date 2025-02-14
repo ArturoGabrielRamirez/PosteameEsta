@@ -14,5 +14,6 @@ export interface Note {
 export interface NoteResponse {
     error: string,
     status: number,
-    notes: Note[]
+    notes: Note[],
+    isLastPage: boolean
 }

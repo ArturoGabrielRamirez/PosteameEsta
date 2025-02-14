@@ -9,8 +9,6 @@ export default async function Home() {
 
   const session = await getServerSession()
 
-  await new Promise((res) => { setTimeout(() => { res(null) }, 2000) })
-
   return (
     <main className="relative md:h-full flex flex-col w-full grow bg-gradient-to-br justify-between shadow-md shadow-[rgba(0,0,0,0.8)]">
       <BGTexture />

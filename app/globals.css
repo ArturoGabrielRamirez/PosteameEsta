@@ -109,19 +109,19 @@
   }
 
   20% {
-    transform: rotate(6deg);
+    transform: rotate(4deg);
   }
 
   40% {
-    transform: rotate(-6deg);
+    transform: rotate(-4deg);
   }
 
   60% {
-    transform: rotate(3deg);
+    transform: rotate(2deg);
   }
 
   80% {
-    transform: rotate(-3deg);
+    transform: rotate(-2deg);
   }
 
   100% {

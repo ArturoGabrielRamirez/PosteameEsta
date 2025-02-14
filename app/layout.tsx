@@ -39,12 +39,12 @@ export default function RootLayout({
           <CurretThemeProvider>
             <SesionProviders>
               <NotesProvider>
-                <div className="flex justify-between items-center absolute z-10 w-full -top-7">
+                <div className="flex justify-between items-center absolute z-10 w-full -top-7 min-w-[320px]">
                   <Light />
                   <Light />
                   <Light />
                 </div>
-                <div className='flex flex-col xl:flex-row w-full'>
+                <div className='flex flex-col xl:flex-row w-full min-[1600px]:max-h-dvh'>
                   <AppBar />
                   <BackGroundThemeClient>
                     {children}

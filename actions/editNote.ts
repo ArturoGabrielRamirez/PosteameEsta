@@ -23,7 +23,7 @@ export const editNote = async (_id: any, data: any) => {
 
     try {
 
-        const updatedNote = await db.collection("notes").updateOne({ _id: new ObjectId(_id) }, { $set: { title, postItNote } })
+        const updatedNote = await db.collection("notes").updateOne({ _id: ObjectId.createFromTime(_id) }, { $set: { title, postItNote } })
         revalidatePath("/")
 
         if (updatedNote.matchedCount === 0) {

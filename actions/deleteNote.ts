@@ -12,7 +12,7 @@ export const deleteNote = async (data: any) => {
 
     try {
 
-        const deleteResult = await db.collection("notes").deleteOne({ _id: new ObjectId(data) })
+        const deleteResult = await db.collection("notes").deleteOne({ _id: ObjectId.createFromHexString(data) })
         revalidatePath("/")
 
         return ({ result: deleteResult })

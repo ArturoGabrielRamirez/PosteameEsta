@@ -12,7 +12,7 @@ export default function BackGroundThemeClient({
 
 
     return (
-        <div className={`min-h-screen min-[1624px]:h-screen min-[1624px]:max-h-dvh w-full flex flex-col items-center justify-center bg-gradient-to-tr xl:bg-gradient-to-br 
+        <div className={`min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-tr xl:bg-gradient-to-br 
         ${currentTheme === 'light'
                 ? 'light-gradient'
                 : 'dark-gradient'} pl-4 py-4 pr-4 xl:py-8 xl:pr-8`}>

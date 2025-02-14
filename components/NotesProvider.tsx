@@ -11,7 +11,7 @@ import { NotesContextType } from '../types/types'
 const NotesContext = createContext<NotesContextType>({
     currentPage: 1,
     handlePageChange: () => { },
-    setNotes: (_notes: Note[]) => { },
+    setNotes: (_notes: Note[] | undefined) => { },
     isActive: false,
     setIsActive: () => { },
     notes: [],
@@ -20,7 +20,10 @@ const NotesContext = createContext<NotesContextType>({
     limit: '',
     concatenatedPath: '',
     savePrevPath: () => { },
-    loading: false
+    loading: false,
+    isEmptyPage: false,
+    isLastPage: false,
+    addNote: (_newNote: Note) => { }
 })
 
 
@@ -31,37 +34,50 @@ export function NotesProvider({ children }: ProviderProps) {
     const { replace } = useRouter()
     const pageParam = Number(searchParam.get('page') || 1)
     const limitParam = String(searchParam.get('limit') || 10)
-    const [notes, setNotes] = useState<Note[]>([])
+    const [notes, setNotes] = useState<Note[] | undefined>(undefined)
     const [currentPage, setCurrentPage] = useState<number>(pageParam)
     const [prevPathname, setPrevPathname] = useState<string>('/')
     const [limit, _setLimit] = useState<string>(limitParam)
     const [concatenatedPath, setConcatenatedPath] = useState<string>('/')
     const [isActive, setIsActive] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
+    const [isEmptyPage, setIsEmptyPage] = useState<boolean>(false)
+    const [isLastPage, setIsLastPage] = useState<boolean>(false)
     const params = new URLSearchParams(searchParam as any)//Buscar necesidad de ese any ahi
     const { data: session } = useSession<boolean>()
     const userEmail = session?.user?.email as string
 
 
     useEffect(() => {
-        setLoading(true)
-        setIsActive(false)
         const fetchNotes = async () => {
-            const response = await getNotes(undefined, userEmail, currentPage, limit) as NoteResponse
-            if (response.notes?.length !== 0) {
-                setNotes(response.notes)
-            } else {
-                setNotes([])
+            setLoading(true)
+            setIsActive(false)
+            try {
+                const response = await getNotes(undefined, userEmail, currentPage, limit) as NoteResponse
+                if (response.notes?.length !== 0) {
+                    setNotes(response.notes)
+                    setIsEmptyPage(false)
+                    setIsLastPage(response.isLastPage)
+                } else {
+                    setNotes([])
+                    setIsEmptyPage(true)
+                    setIsLastPage(false)
+                }
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
             }
-        }
 
-        setLoading(false)
+        }
         userEmail && fetchNotes()
     }, [searchParam, userEmail, currentPage, limit])
 
     useEffect(() => {
+        setLoading(true)
         const newPathName = `${pathname}?${params.toString()}`
         setConcatenatedPath(newPathName)
+
     }, [pathname, params])
 
 
@@ -109,6 +125,10 @@ export function NotesProvider({ children }: ProviderProps) {
 
     }
 
+    const addNote = (newNote: Note) => {
+        setNotes((prevNotes) => [...(prevNotes || []), newNote])
+    }
+
 
     return (
         <NotesContext.Provider value={{
@@ -117,13 +137,17 @@ export function NotesProvider({ children }: ProviderProps) {
             setNotes,
             isActive,
             setIsActive,
-            notes,
+            notes : notes || [],
             session,
             userEmail,
             limit,
             concatenatedPath,
             savePrevPath,
-            loading
+            loading,
+            isLastPage,
+            isEmptyPage,
+            addNote
+            
         }}>
             {children}
         </NotesContext.Provider>

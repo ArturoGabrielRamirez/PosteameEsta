@@ -35,7 +35,7 @@ export type propsButtonsQuery = {
 export type NotesContextType = {
     currentPage: number,
     handlePageChange: (action: string) => void,
-    setNotes: (notes: Note[]) => void,
+    setNotes: (notes: Note[] | undefined) => void,
     isActive: boolean,
     setIsActive: (boolean: boolean) => void,
     notes: Note[],
@@ -44,7 +44,10 @@ export type NotesContextType = {
     limit: string,
     concatenatedPath: any,
     savePrevPath: () => void,
-    loading: boolean
+    loading: boolean,
+    isLastPage: boolean,
+    isEmptyPage: boolean,
+    addNote: (newNote: Note) => void
 }
 
 type ButtonOption = {

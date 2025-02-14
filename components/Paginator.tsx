@@ -22,7 +22,9 @@ export default function Paginator() {
         notes,
         currentPage,
         handlePageChange,
-        concatenatedPath
+        concatenatedPath,
+        isLastPage,
+        isEmptyPage
     } = useNotesContext()
 
     const handleClick = (action: string, e: React.MouseEvent) => {
@@ -32,14 +34,14 @@ export default function Paginator() {
 
 
     return (
-        <div className={`relative flex justify-center items-center overflow-hidden w-full max-w-[500px] `}>
-            <AspectRatio ratio={16 / 11}>
+        <div className={`${isLastPage && notes === undefined && 'absolute'} w-full max-w-[300px] rounded-sm shadow-lg shadow-[rgba(0,0,0,0.8)] `}>
+            <AspectRatio ratio={16 / 10} className="max-w-full max-h-full">
                 <PaperBG>
                     <div className="flex absolute top-0 w-full py-4 px-2">
                         <MiniPushPinGroup />
                     </div>
                     <div className="absolute flex flex-col items-center">
-                        {notes && notes?.length === 0 && <p className="p-2">No hay más notas.</p>}
+                        {notes && notes?.length === 0 && isLastPage && !isEmptyPage && <p className="p-2">No hay notas para mostrar.</p>}
                         <Pagination>
                             <PaginationContent>
                                 <PaginationItem>
@@ -63,7 +65,7 @@ export default function Paginator() {
                                         <PaginationNext
                                             href={`${concatenatedPath}`}
                                             onClick={handleClick.bind(null, 'next')}
-                                            className={`${notes?.length === 0 && 'hidden'} bg-emerald-500`} />
+                                            className={`${isLastPage && !isEmptyPage && 'hidden'} bg-emerald-500`} />
                                         :
                                         <PaginationLink
                                             href={`${concatenatedPath}`}
@@ -83,10 +85,5 @@ export default function Paginator() {
             </AspectRatio>
         </div>
     )
-
-
-
-
-
 
 }
