@@ -43,40 +43,35 @@ export function NotesProvider({ children }: ProviderProps) {
     const [loading, setLoading] = useState<boolean>(false)
     const [isEmptyPage, setIsEmptyPage] = useState<boolean>(false)
     const [isLastPage, setIsLastPage] = useState<boolean>(false)
-    const params = new URLSearchParams(searchParam as any)//Buscar necesidad de ese any ahi
+    const params = new URLSearchParams(searchParam)
     const { data: session } = useSession<boolean>()
     const userEmail = session?.user?.email as string
 
 
     useEffect(() => {
+        if (!userEmail) return
         const fetchNotes = async () => {
             setLoading(true)
             setIsActive(false)
             try {
                 const response = await getNotes(undefined, userEmail, currentPage, limit) as NoteResponse
-                if (response.notes?.length !== 0) {
-                    setNotes(response.notes)
-                    setIsEmptyPage(false)
-                    setIsLastPage(response.isLastPage)
-                } else {
-                    setNotes([])
-                    setIsEmptyPage(true)
-                    setIsLastPage(false)
-                }
+                setNotes(response.notes || [])
+                setIsEmptyPage(response.notes?.length === 0)
+                setIsLastPage(response.isLastPage)
             } catch (error) {
-                console.log(error)
+                console.error('Error al obtener notas:', error)
             } finally {
                 setLoading(false)
             }
-
         }
-        userEmail && fetchNotes()
+        fetchNotes()
     }, [searchParam, userEmail, currentPage, limit])
 
     useEffect(() => {
         setLoading(true)
         const newPathName = `${pathname}?${params.toString()}`
         setConcatenatedPath(newPathName)
+        setLoading(false)
 
     }, [pathname, params])
 
@@ -137,7 +132,7 @@ export function NotesProvider({ children }: ProviderProps) {
             setNotes,
             isActive,
             setIsActive,
-            notes : notes || [],
+            notes: notes || [],
             session,
             userEmail,
             limit,
@@ -147,7 +142,7 @@ export function NotesProvider({ children }: ProviderProps) {
             isLastPage,
             isEmptyPage,
             addNote
-            
+
         }}>
             {children}
         </NotesContext.Provider>

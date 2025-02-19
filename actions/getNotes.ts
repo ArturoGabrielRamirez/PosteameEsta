@@ -14,7 +14,7 @@ export const getNotes = async (id: any, userEmail: string, currentPage?: any, li
     if (id !== undefined) {
 
         const note = await db.collection('notes').findOne({
-            _id: ObjectId.createFromTime(id),
+            _id: ObjectId.createFromHexString(id),
 
         })
 
@@ -42,18 +42,9 @@ export const getNotes = async (id: any, userEmail: string, currentPage?: any, li
         }
     }
 
-    /*   const nextPageCount = await db.collection('notes')
-      .find({ userEmail: userEmail })
-      .skip((currentPage + 1) * limitToNumber) 
-      .limit(1) 
-      .toArray();
-  
-      const isLastPage = nextPageCount.length > 0 */
-
     const totalNotes = await db.collection('notes').countDocuments({ userEmail: userEmail });
     const isLastPage = totalNotes <= ((Number(currentPage) || 1) * limitToNumber );
 
-    console.log(totalNotes, isLastPage)
 
     const serializableNotes = notes.map(note => ({
         ...note,

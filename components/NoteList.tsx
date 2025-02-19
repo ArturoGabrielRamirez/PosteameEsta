@@ -14,40 +14,47 @@ import {
 import { useThemeContext } from './CurrentThemeProvider'
 
 export default function NoteList() {
-    const { notes } = useNotesContext()
+    const { notes, limit } = useNotesContext()
     const { currentTheme } = useThemeContext()
+
+    const limitToNumber = Number(limit)
+    const remainder = notes.length % limitToNumber
+    const missingNotes = remainder === 0 ? 0 : limitToNumber - remainder
+    const notesSubstitute = Array(missingNotes || 10).fill({ isPlaceholder: true })
+    const finalNotes = [...notes, ...notesSubstitute]
 
     return (
         <>
-            {notes?.map((note) =>
-            (
-                <Card
-                    key={note._id}
-                    className={`postIt group flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br 
-                ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'}
-                shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[calc(30vh-30px)] w-full`}>
-                    <div className='pt-2'>
-                        <PushPin />
-                    </div>
-                    <CardHeader className='w-full text-center p-2'>
-                        <CardTitle
-                            className='overflow-hidden truncate break-words text-lg'>
-                            {note.title}
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className='text-center grow w-full'>
-                        <CardDescription className='overflow-hidden truncate break-words text-sm' >
-                            {note.postItNote}
-                        </CardDescription>
-                    </CardContent>
-                    <CardFooter className='gap-4 lg:gap-6 hidden group-hover:flex'>
-                        <Buttons option='view' data={note._id} editStates={undefined} />
-                        <Buttons option='delete' data={note._id} editStates={undefined} />
-                    </CardFooter>
-                </Card>
-            ))
-            }
+            {finalNotes?.map((note, i) => (
+                note.isPlaceholder ? (
+                    <div key={`placeholder-${i}`} className="h-[calc(30vh-30px)] w-full z-10" />
+                ) : (
+                    <Card
+                        key={note._id || `note-${i}`}
+                        className={`postIt group flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br 
+                                   ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'}
+                                   shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[calc(30vh-30px)] w-full`}>
+                        <div className='pt-2'>
+                            <PushPin />
+                        </div>
+                        <CardHeader className='w-full text-center p-2'>
+                            <CardTitle
+                                className='overflow-hidden truncate break-words text-lg'>
+                                {note.title}
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className='text-center grow w-full'>
+                            <CardDescription className='overflow-hidden truncate break-words text-sm' >
+                                {note.postItNote}
+                            </CardDescription>
+                        </CardContent>
+                        <CardFooter className='gap-4 lg:gap-6 hidden group-hover:flex'>
+                            <Buttons option='view' data={note._id} editStates={undefined} />
+                            <Buttons option='delete' data={note._id} editStates={undefined} />
+                        </CardFooter>
+                    </Card>
+                )
+            ))}
         </>
     )
-
 }

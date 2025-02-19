@@ -43,7 +43,7 @@ export default function Form({ editStates }: any) {
             {errors.title && <span className='text-red-600'>Este Campo es requerido</span>}
             <Textarea
                 placeholder='Post It...'
-                className='rounded-md p-2 resize-none bg-transparent border-none focus-visible:outline-none 
+                className='rounded-md sm:p-2 resize-none bg-transparent border-none focus-visible:outline-none 
                 focus-visible:ring-0 focus:outline-none focus:ring-0 focus-visible:ring-offset-0'
                 {...register('postItNote', { required: true })} />
             {errors.postItNote && <span className='text-red-600'>Este Campo es requerido</span>}
