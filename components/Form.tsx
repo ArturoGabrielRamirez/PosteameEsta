@@ -14,7 +14,6 @@ export default function Form({ editStates }: any) {
 
     const { setIsActive } = editStates
     const { notes, setNotes, userEmail, limit } = useNotesContext()
-    /* const { limit } = useNotesContext() */
     const {
         register,
         handleSubmit,
