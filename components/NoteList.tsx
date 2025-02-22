@@ -27,13 +27,13 @@ export default function NoteList() {
         <>
             {finalNotes?.map((note, i) => (
                 note.isPlaceholder ? (
-                    <div key={`placeholder-${i}`} className="h-[calc(30vh-30px)] w-full z-10" />
+                    <div key={`placeholder-${i}`} className="h-[calc(30vh-30px)] min-h-[240px] w-full z-10" />
                 ) : (
                     <Card
                         key={note._id || `note-${i}`}
                         className={`postIt group flex flex-col items-center rounded-sm overflow-hidden bg-gradient-to-br 
                                    ${currentTheme === 'light' ? 'post-it-light-gradient' : 'post-it-dark-gradient'}
-                                   shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 h-[calc(30vh-30px)] w-full`}>
+                                   shadow-md shadow-[rgba(0,0,0,0.8)] border-none z-10 w-full h-[calc(30vh-30px)] min-h-[240px]`}>
                         <div className='pt-2'>
                             <PushPin />
                         </div>

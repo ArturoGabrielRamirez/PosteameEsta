@@ -15,7 +15,7 @@ export default function CreateNoteClient() {
 
 
         return !isActive ? (
-            <Card className={`flex h-[calc(30vh-30px)] relative items-center justify-center rounded-sm text-4xl bg-gradient-to-br  
+            <Card className={`flex h-[calc(30vh-30px)] min-h-[240px] relative items-center justify-center rounded-sm text-4xl bg-gradient-to-br  
             ${currentTheme === 'light' ? 'post-it-light-gradient'
                     : 'post-it-dark-gradient'} overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] border-none`}>
                 <Buttons
@@ -29,7 +29,7 @@ export default function CreateNoteClient() {
                     priority />
             </Card>
         ) : (
-            <Card className={`flex h-[calc(30vh-30px)] z-10 rounded-sm bg-gradient-to-br 
+            <Card className={`flex h-[calc(30vh-30px)] min-h-[240px] z-10 rounded-sm bg-gradient-to-br 
             ${currentTheme === 'light' 
             ? 'post-it-light-gradient' 
             : 'post-it-dark-gradient'} shadow-md shadow-[rgba(0,0,0,0.8)] border-none`}>
