@@ -41,7 +41,7 @@ export const buttonConfig = (propsData: propsButtonsData, setNotes: any, propsQu
             {
                 userEmail: propsQuery.userEmail,
                 currentPage: propsQuery.currentPage,
-                limit: propsQuery.limit
+                limit: Number(propsQuery.limit)
             }),
         className: 'min-w-[70px] p-2 bg-red-600',
         classNameText: '',
