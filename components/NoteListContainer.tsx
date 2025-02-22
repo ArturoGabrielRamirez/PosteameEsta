@@ -1,7 +1,7 @@
 'use client'
 
 import React, { lazy } from "react"
-import { Suspense } from 'react' 
+import { Suspense } from 'react'
 const CreateNoteClient = lazy(() => import("./CreateNoteClient"))
 const NoteList = lazy(() => import("./NoteList"))
 const Paginator = lazy(() => import("./Paginator"))
@@ -10,8 +10,10 @@ import SkeletonArray from "./SkeletonArray"
 import SkeletonTemplate from "./SkeletonTemplate"
 
 export default function NoteListContainer() {
-    const { limit, userEmail, notes } = useNotesContext()
+    const { limit, userEmail, notes, loading } = useNotesContext()
     const skeletonCondition = notes?.length > 10 || limit === '0' || Number(limit) > 10
+
+    console.log(loading)
 
     return (
         userEmail && (
@@ -26,9 +28,9 @@ export default function NoteListContainer() {
                     <CreateNoteClient />
                 </Suspense>
 
-                <Suspense fallback={<SkeletonArray notes={notes} />}>
+                {loading ? <SkeletonArray notes={notes} /> : <Suspense fallback={<SkeletonArray notes={notes} />}>
                     <NoteList />
-                </Suspense>
+                </Suspense>}
 
                 <Suspense fallback={<SkeletonTemplate type="paginator" />}>
                     <Paginator />
