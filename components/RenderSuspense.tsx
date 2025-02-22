@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+/* import { Suspense } from "react"
 
 function RenderSuspense({ component: Component, fallback }: {
     component: React.LazyExoticComponent<React.ComponentType<any>>,
@@ -11,4 +11,4 @@ function RenderSuspense({ component: Component, fallback }: {
     )
 }
 
-export default RenderSuspense
+export default RenderSuspense */

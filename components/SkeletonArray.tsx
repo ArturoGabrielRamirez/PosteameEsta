@@ -9,8 +9,8 @@ export default function SkeletonArray({ notes }: { notes: Note[] }) {
     const limitToNumber = Number(limit)
     const remainder = notes.length % limitToNumber
     const missingNotes = remainder === 0 ? 0 : limitToNumber - remainder
-    const notesSubstitute = Array(missingNotes || 10).fill({ isPlaceholder: true })
-    const finalNotes = [...notes, ...notesSubstitute]
+    const notesSubstitute = Array(missingNotes === 0 ? 10 : missingNotes).fill({ isPlaceholder: true })
+    const finalNotes = [...notes, ...notesSubstitute].slice(0, Number(limit))
 
     return (
         <>

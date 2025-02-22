@@ -1,11 +1,8 @@
-"use client"
-
 import MiniPushPinGroup from "./MiniPushPinGroup"
 import { useNotesContext } from "./NotesProvider"
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
     PaginationNext,
@@ -46,7 +43,7 @@ export default function Paginator() {
                             <PaginationItem>
                                 <PaginationPrevious
                                     href={`${concatenatedPath}`}
-                                    onClick={handleClick.bind(null, 'previous')}
+                                    onClick={(e) => handleClick('previous', e)}
                                     className={`${currentPage === 1 && 'hidden'} bg-emerald-500`} />
                             </PaginationItem>
                             <PaginationItem>
@@ -56,22 +53,22 @@ export default function Paginator() {
                                     {currentPage}
                                 </PaginationLink>
                             </PaginationItem>
-                            <PaginationItem>
-                                <PaginationEllipsis className="bg-emerald-500 rounded-md" />
-                            </PaginationItem>
-                            <PaginationItem>
-                                {notes?.length !== 0 ?
-                                    <PaginationNext
-                                        href={`${concatenatedPath}`}
-                                        onClick={handleClick.bind(null, 'next')}
-                                        className={`${isLastPage && !isEmptyPage && 'hidden'} bg-emerald-500`} />
-                                    :
+                            {currentPage > 2 && <PaginationItem>
+                                <Pagination className="bg-emerald-500 rounded-md" >
                                     <PaginationLink
                                         href={`${concatenatedPath}`}
-                                        onClick={handleClick.bind(null, 'redirect')}
+                                        onClick={(e) => handleClick('redirect', e)}
                                         className="bg-emerald-500">
                                         <ChevronsLeft />
                                     </PaginationLink>
+                                </Pagination>
+                            </PaginationItem>}
+                            <PaginationItem>
+                                {notes?.length !== 0 &&
+                                    <PaginationNext
+                                        href={`${concatenatedPath}`}
+                                        onClick={(e) => handleClick('next', e)}
+                                        className={`${isLastPage && !isEmptyPage && 'hidden'} bg-emerald-500`} />
                                 }
                             </PaginationItem>
                         </PaginationContent>

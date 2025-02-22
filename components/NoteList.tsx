@@ -20,7 +20,7 @@ export default function NoteList() {
     const limitToNumber = Number(limit)
     const remainder = notes.length % limitToNumber
     const missingNotes = remainder === 0 ? 0 : limitToNumber - remainder
-    const notesSubstitute = Array(missingNotes || 10).fill({ isPlaceholder: true })
+    const notesSubstitute = Array(missingNotes).fill({ isPlaceholder: true })
     const finalNotes = [...notes, ...notesSubstitute]
 
     return (

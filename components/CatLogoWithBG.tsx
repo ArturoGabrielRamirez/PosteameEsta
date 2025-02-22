@@ -1,27 +1,19 @@
-'use client'
 
 import Link from "next/link"
 import Image from "next/image"
-import { useNotesContext } from "./NotesProvider"
 import MiniPushPin from "./MiniPushPin"
 import logo from "@/public/image/logo.png"
 import PaperBG from "./PaperBG"
 
 export default function CatLogoWithBG() {
-    const { concatenatedPath, handlePageChange, userEmail } = useNotesContext()
-
-    const handleClick = (action: string, e: React.MouseEvent) => {
-        e.preventDefault()
-        handlePageChange(action)
-    }
 
     return (
         <Link
-            href={userEmail ? `${concatenatedPath}` : '/'}
+            href={'/'}
             className="outline-none">
             <div className="rotate-3 z-10 overflow-hidden shadow-md shadow-[rgba(0,0,0,0.8)] relative 
             max-w-[200px] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[370px] xl:max-w-[350px] xl:-top-4 min-w-[200px]"
-                onClick={handleClick.bind(null, 'redirect')}>
+            >
                 <PaperBG>
                     <div className="absolute top-2">
                         <MiniPushPin />

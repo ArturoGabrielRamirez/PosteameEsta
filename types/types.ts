@@ -28,7 +28,7 @@ export type propsButtonsData = {
 
 export type propsButtonsQuery = {
     userEmail: string
-    limit: number
+    limit: string | number
     currentPage: number
 }
 
@@ -41,13 +41,14 @@ export type NotesContextType = {
     notes: Note[],
     session: Session | null,
     userEmail: string,
-    limit: string,
+    limit: string | number,
     concatenatedPath: any,
     savePrevPath: () => void,
     loading: boolean,
     isLastPage: boolean,
     isEmptyPage: boolean,
-    addNote: (newNote: Note) => void
+    addNote: (newNote: Note) => void,
+    prevPathname: string
 }
 
 type ButtonOption = {
