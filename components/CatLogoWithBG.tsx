@@ -26,6 +26,7 @@ export default function CatLogoWithBG() {
                             priority
                             sizes="(min-width: 1200px) 50vw, 100vw"
                             placeholder="blur"
+                            loading='eager'
                         />
                     </div>
                 </PaperBG>

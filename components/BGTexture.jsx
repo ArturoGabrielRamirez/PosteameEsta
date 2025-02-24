@@ -18,6 +18,7 @@ export default function BGTexture() {
             priority
             sizes='(min-width: 1200px) 50vw, 100vw'
             placeholder='blur'
+            loading='eager'
         />
     );
 }

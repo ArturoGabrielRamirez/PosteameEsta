@@ -33,7 +33,8 @@ export default function Loading() {
                 src={imagenes[actualImage]}
                 width={100}
                 height={100}
-                sizes='(min-width: 1200px) 50vw, 100vw' />
+                sizes='(min-width: 1200px) 50vw, 100vw'
+                loading='eager' />
             <div className='absolute bottom-0 w-full'>
                 <NailGroup />
             </div>
