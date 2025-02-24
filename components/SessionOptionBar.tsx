@@ -6,7 +6,7 @@ import PaperBG from "./PaperBG"
 import SigninButton from "./SignInButton"
 import ModeToggle from "./ModeToggle"
 import { useNotesContext } from "./NotesProvider"
-import bgNewNote from "@/public/image/bgNewNote.png"
+import bgNewNote from "@/public/image/bgNewNote.webp"
 import Footer from "./Footer"
 
 export default function SessionOptionBar() {

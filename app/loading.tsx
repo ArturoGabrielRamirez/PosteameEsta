@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import loader1 from "@/public/image/test-loader1.png"
-import loader2 from "@/public/image/test-loader2.png"
-import loader3 from "@/public/image/test-loader3.png"
-import loader4 from "@/public/image/test-loader4.png"
+import loader1 from "@/public/image/loader1.webp"
+import loader2 from "@/public/image/loader2.webp"
+import loader3 from "@/public/image/loader3.webp"
+import loader4 from "@/public/image/loader4.webp"
 import Image from 'next/image'
 import BGTexture from '@/components/BGTexture'
 import NailGroup from '@/components/NailGroup'

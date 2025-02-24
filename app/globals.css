@@ -146,7 +146,7 @@
 }
 
 .granulated {
-  background-image: url("/image/texture.jpg");
+  background-image: url("/image/texture.webp");
   background-size: cover;
   background-repeat: repeat;
 }

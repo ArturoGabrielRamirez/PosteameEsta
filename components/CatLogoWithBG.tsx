@@ -2,7 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import MiniPushPin from "./MiniPushPin"
-import logo from "@/public/image/logo.png"
+import logo from "@/public/image/logo.webp"
 import PaperBG from "./PaperBG"
 
 export default function CatLogoWithBG() {

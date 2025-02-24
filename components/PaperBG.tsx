@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import bgForLogo from "@/public/image/bgForLogo.png"
+import bgForLogo from "@/public/image/bgForLogo.webp"
 import { ProviderProps } from "../interfaces/interfaces"
 import { useThemeContext } from "./CurrentThemeProvider"
 

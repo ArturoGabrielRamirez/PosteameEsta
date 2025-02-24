@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useNotesContext } from "./NotesProvider"
 import SigninButton from "./SignInButton"
 import ModeToggle from "./ModeToggle"
-import bgNewNote from "@/public/image/bgNewNote.png"
+import bgNewNote from "@/public/image/bgNewNote.webp"
 
 function LowResolutionSessionBar() {
 

@@ -3,7 +3,7 @@
 import Form from './Form'
 import Buttons from './Buttons'
 import Image from 'next/image'
-import bgNewNote from '@/public/image/bgNewNote.png'
+import bgNewNote from '@/public/image/bgNewNote.webp'
 import { useNotesContext } from './NotesProvider'
 import { Card } from '@/components/ui/card'
 import { useThemeContext } from './CurrentThemeProvider'
