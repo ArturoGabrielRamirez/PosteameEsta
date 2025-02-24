@@ -26,8 +26,10 @@ export default function SessionOptionBar() {
                         className="rounded-full relative p-1 min-[380px]:p-0 max-[639px]:min-h-[50px] max-[639px]:max-w-[50px]
                      md:w-[60px] md:min-h-[60px]"
                         height={50}
+                        width={50}
                         src={session?.user?.image || bgNewNote}
-                        width={50} priority />
+                        priority
+                        sizes="(min-width: 1200px) 50vw, 100vw" />
                     <div className="flex flex-col">
                         <h2 className="hidden sm:block sm:text-lg pr-4 w-fit">
                             {session ? session?.user?.name : "Bienvenido"}

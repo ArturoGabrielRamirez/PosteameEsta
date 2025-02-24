@@ -54,7 +54,6 @@ export function NotesProvider({ children }: ProviderProps) {
         const fetchNotes = async () => {
             setLoading(true)
             setIsActive(false)
-            console.log('fetchNotes')
             try {
                 const response = await getNotes(undefined, userEmail, currentPage, limit) as NoteResponse
                 setNotes(response.notes || [])

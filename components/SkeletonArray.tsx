@@ -16,7 +16,7 @@ export default function SkeletonArray({ notes }: { notes: Note[] }) {
         <>
             {finalNotes?.map((note, i) => (
                 note.isPlaceholder ? (
-                    <div key={`placeholder-${i}`} className="h-[calc(30vh-30px)] min-h-[240px] w-full z-10" />
+                    <div key={`placeholder-${i}`} className="max-h-[calc(30vh-30px)] min-h-[240px] w-full z-10" />
                 ) : (
                     <SkeletonCard key={note._id || `note-${i}`} />
                 )

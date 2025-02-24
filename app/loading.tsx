@@ -26,7 +26,14 @@ export default function Loading() {
             <div className='absolute grow w-full'>
                 <NailGroup />
             </div>
-            <Image className="z-10" alt="loader" priority src={imagenes[actualImage]} width={100} height={100} />
+            <Image
+                className="z-10"
+                alt="loader"
+                priority
+                src={imagenes[actualImage]}
+                width={100}
+                height={100}
+                sizes='(min-width: 1200px) 50vw, 100vw' />
             <div className='absolute bottom-0 w-full'>
                 <NailGroup />
             </div>

@@ -24,6 +24,8 @@ export default function CatLogoWithBG() {
                             src={logo}
                             className="z-10 -rotate-3 absolute bottom-0"
                             priority
+                            sizes="(min-width: 1200px) 50vw, 100vw"
+                            placeholder="blur"
                         />
                     </div>
                 </PaperBG>

@@ -5,7 +5,7 @@ export default function SkeletonTemplate({ type }: {
 }) {
 
     return (
-        <Skeleton className={`${type === 'paginator' ? 'max-h-[calc(25vh-20px)]' : 'max-h-[calc(30vh-30px)]'} flex justify-center items-center`} >
+        <Skeleton className={`${type === 'paginator' ? 'max-h-[calc(25vh-20px)] min-h-[180px]' : 'max-h-[calc(30vh-30px)] min-h-[240px]'} flex justify-center items-center`} >
             {type === 'createNote' && (
                 <>
                     <div className="bg-gray-700 w-full h-[80px] rounded-sm flex justify-center items-center gap-3" >

@@ -16,9 +16,8 @@ export default function BGTexture() {
             style={{ objectFit: 'cover', opacity }}
             quality={75}
             priority
-            placeholder='blur'
             sizes='(min-width: 1200px) 50vw, 100vw'
-            
+            placeholder='blur'
         />
     );
 }

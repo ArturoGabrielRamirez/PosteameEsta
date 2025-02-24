@@ -13,8 +13,6 @@ export default function NoteListContainer() {
     const { limit, userEmail, notes, loading } = useNotesContext()
     const skeletonCondition = notes?.length > 10 || limit === '0' || Number(limit) > 10
 
-    console.log(loading)
-
     return (
         userEmail && (
             <div

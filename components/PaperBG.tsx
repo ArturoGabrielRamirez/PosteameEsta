@@ -19,7 +19,8 @@ export default function PaperBG({ children, classProps }: ProviderProps & { clas
                 className={currentTheme === 'light' ? '' : ' opacity-20'}
                 src={bgForLogo}
                 style={{ objectFit: "cover" }}
-
+                placeholder="blur"
+                sizes="(min-width: 1200px) 50vw, 100vw"
                 priority />
             {children}
         </div>
