@@ -22,13 +22,19 @@ export default function Footer({ className }: { className?: string }) {
                 </p>
                 <div className='flex gap-2'>
                     <Link href={'https://www.facebook.com/gabriel.b.soad'}>
-                        <Facebook className='size-[16px]' />
+                        <Facebook
+                            aria-label='Cuenta de Facebook del creador de la pagina'
+                            className='size-[16px]' />
                     </Link>
                     <Link href={'https://www.instagram.com/gab_khada_jhin/'}>
-                        <Instagram className='size-[16px]' />
+                        <Instagram
+                            aria-label='Cuenta de Instagram del creador de la pagina'
+                            className='size-[16px]' />
                     </Link>
                     <Link href={'https://www.linkedin.com/in/arturo-ramirez-84b345277/'}>
-                        <Linkedin className='size-[16px]' />
+                        <Linkedin
+                            aria-label='Cuenta de LinkedIn del creador de la pagina'
+                            className='size-[16px]' />
                     </Link>
                 </div>
             </div>

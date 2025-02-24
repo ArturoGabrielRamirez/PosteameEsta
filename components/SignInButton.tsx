@@ -10,6 +10,7 @@ const SigninButton = ({ className }: { className?: string }) => {
   
     return (
         <Button 
+        aria-label={session && session.user ? "Cerrar Sesión" : "Iniciar Sesión"}
         className={`bg-transparent text-primary hover:text-primary-foreground ${className}`} 
         onClick={() => session && session.user ? signOut({ redirect: true, callbackUrl: '/' }) : signIn()}>
             <LogIn className={`size-[23px] ${session && session.user ? "hidden" : "block"}`} />

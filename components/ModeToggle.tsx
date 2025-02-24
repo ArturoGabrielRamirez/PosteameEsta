@@ -12,7 +12,8 @@ export default function ModeToggle() {
 
   return (
     <Button 
-    className="bg-transparent text-primary hover:text-primary-foreground" 
+    className="bg-transparent text-primary hover:text-primary-foreground"
+    aria-label={`Cambiar a modo ${currentTheme === 'light' ? 'oscuro' : 'claro'}`}
     onClick={() => setTheme(currentTheme === 'light' ? 'dark' : 'light')}>
       <SunMoon className={`size-[23px] ${currentTheme === 'dark' ? 'block' : 'hidden'}`} />
       <Sun className={`size-[23px] ${currentTheme === 'light' ? 'block' : 'hidden'}`} />

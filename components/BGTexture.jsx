@@ -1,20 +1,24 @@
 'use client'
 
-import { useThemeContext } from "./CurrentThemeProvider"
+import Image from 'next/image';
+import { useThemeContext } from "./CurrentThemeProvider";
+import texture from '../public/image/texture.webp'; // Importa la imagen
 
 export default function BGTexture() {
-    const { currentTheme } = useThemeContext()
-    const opacity = currentTheme === 'dark' ? 0.3 : 1
+    const { currentTheme } = useThemeContext();
+    const opacity = currentTheme === 'dark' ? 0.3 : 1;
 
     return (
-        <div className="granulated" style={{
-            backgroundSize: 'cover',
-            backgroundRepeat: 'repeat',
-            opacity: opacity,
-            position: 'absolute',
-            width: '100%',
-            height: '100%'
-        }} />
-    )
-    
+        <Image
+            src={texture}
+            alt="Fondo de Corcho"
+            fill
+            style={{ objectFit: 'cover', opacity }}
+            quality={75}
+            priority
+            placeholder='blur'
+            sizes='(min-width: 1200px) 50vw, 100vw'
+            
+        />
+    );
 }
